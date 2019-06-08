@@ -17,14 +17,14 @@
         Gas Mileage Calculator
       </header>
       <aside class="aside">
-        <form id='sign-in'>
+        <form id='sign-in' class='hidden'>
           <fieldset>
             <input type="email" name="credentials[email]" placeholder="Enter email here" required>
             <input type="password" name="credentials[password]" placeholder="Enter password here" required>
             <input type="submit" value="Sign In"/>
           </fieldset>
         </form>
-        <form id='sign-up'>
+        <form id='sign-up' class='hidden'>
           <fieldset>
             <input type="email" name="credentials[email]" placeholder="Enter email here" required>
             <input type="password" name="credentials[password]" placeholder="Enter password here" required>
@@ -32,24 +32,28 @@
             <input type="submit" value="Sign Up"/>
           </fieldset>
         </form>
-        <form id='change-pw'>
+        <form id='change-pw' class='hidden'>
           <fieldset>
             <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
             <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
             <input type="submit" value="Change Password"/>
           </fieldset>
         </form>
-        <button id="sign-out">Sign Out</button>
+        <button id='sign-up-button'>Sign Up</button>
+        <button id='sign-in-button'>Sign In</button>
+        <button id='sign-out' class='hidden'>Sign Out</button>
+        <button id='back-button' class='hidden'>Back</button>
+        <div id='user-message'></div>
       </aside>
       <main>
         <div class="content">
           <div class="button">
-            <button id="new-entry">New Entry</button>
+            <button id="new-entry" class='hidden'>New Entry</button>
           </div>
         </div>
-        <footer>
-          © 2019 Guy B. Benson
-        </footer>
       </main>
+      <footer class='footer'>
+        © 2019 Guy B. Benson
+      </footer>
     </body>
 </html>
