@@ -2,9 +2,10 @@
 const pkgName = 'auth.events'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-const util = require('../util')
 const api = require('./api')
+const config = require('../config')
 const ui = require('./ui')
+const util = require('../util')
 
 /*
 ** onSignUp()
@@ -29,6 +30,7 @@ const onSignUp = (event) => {
 const onSignOut = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onSignOut()`)
+  util.logObject(event)
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
@@ -64,11 +66,45 @@ const onSignIn = (event) => {
     .catch(ui.onSignInFail)
 }
 
+/*
+** showSignUp()
+*/
+const showSignUp = () => {
+  util.hide(config.signUpButtonId)
+  util.hide(config.signInButtonId)
+  util.show(config.signUpId)
+  util.show(config.backButtonId)
+}
+
+/*
+** showSignIn()
+*/
+const showSignIn = () => {
+  util.hide(config.signUpButtonId)
+  util.hide(config.signInButtonId)
+  util.show(config.signInId)
+  util.show(config.backButtonId)
+}
+
+/*
+** Hides either sign-in or sign-up and shows other buttons
+*/
+const backUp = () => {
+  util.hide(config.backButtonId)
+  util.hide(config.signUpId)
+  util.hide(config.signInId)
+  util.show(config.signUpButtonId)
+  util.show(config.signInButtonId)
+}
+
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp) // This is a form.
-  $('#sign-in').on('submit', onSignIn) // This is a form.
-  $('#sign-out').on('click', onSignOut) // This is a button.
-  $('#change-pw').on('submit', onChangePassword) // This is a form.
+  $(config.signUpId).on('submit', onSignUp) // This is a form.
+  $(config.signInId).on('submit', onSignIn) // This is a form.
+  $(config.signOutId).on('click', onSignOut) // This is a button.
+  $(config.changePWId).on('submit', onChangePassword) // This is a form.
+  $(config.signUpButtonId).on('click', showSignUp) // This is a button.
+  $(config.signInButtonId).on('click', showSignIn) // This is a button.
+  $(config.backButtonId).on('click', backUp) // This is a button.
 }
 
 module.exports = {
