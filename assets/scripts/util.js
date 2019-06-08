@@ -8,9 +8,11 @@ const config = require('./config')
 **            message to be logged
 **    returns: nothing
 */
-const logMessage = (method, message, object) => {
+const logMessage = function () {
+  const args = Array.from(arguments)
   if (config.isNotProd) {
-    console.log(`IN: ${method}: `, message, object)
+    const method = args.shift()
+    console.log(`IN: ${method}:`, args.join(' '))
   }
 }
 
