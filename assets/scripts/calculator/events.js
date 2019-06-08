@@ -2,8 +2,9 @@
 const pkgName = 'calc.events'
 
 const getFormFields = require('../../../lib/get-form-fields')
-const util = require('../util')
 const api = require('./api')
+const config = require('./config')
+const util = require('../util')
 
 /*
 **
@@ -16,7 +17,7 @@ const onNewEntry = (event) => {
 }
 
 const addHandlers = () => {
-  $('#new-entry').on('click', onNewEntry)
+  $(config.newEntryButtonId).on('click', onNewEntry)
 }
 
 module.exports = {
