@@ -25,7 +25,6 @@ const signUp = (formData) => {
 const signIn = (formData) => {
   util.logMessage(`${pkgName}.signIn()`)
   util.logObject(formData)
-
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -38,8 +37,6 @@ const signIn = (formData) => {
 */
 const signOut = (event) => {
   util.logMessage(`${pkgName}.signOut()`)
-  util.logObject(event)
-
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
