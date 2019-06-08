@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
-      <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+<!--      <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet"> -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
       <!-- Do not add `script` tags-->
@@ -17,35 +17,34 @@
         Gas Mileage Calculator
       </header>
       <aside class="aside">
-        <section id='sign-in'>
-          <form>
+        <form id='sign-in'>
+          <fieldset>
             <input type="email" name="credentials[email]" placeholder="Enter email here" required>
             <input type="password" name="credentials[password]" placeholder="Enter password here" required>
             <input type="submit" value="Sign In"/>
-          </form>
-        </section>
-        <section id='sign-up'>
-          <form>
+          </fieldset>
+        </form>
+        <form id='sign-up'>
+          <fieldset>
             <input type="email" name="credentials[email]" placeholder="Enter email here" required>
             <input type="password" name="credentials[password]" placeholder="Enter password here" required>
             <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
             <input type="submit" value="Sign Up"/>
-          </form>
-        </section>
-        <section id='change-pw'>
-          <form>
+          </fieldset>
+        </form>
+        <form id='change-pw'>
+          <fieldset>
             <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
             <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
             <input type="submit" value="Change Password"/>
-          </form>
-        </section>
+          </fieldset>
+        </form>
         <button id="sign-out">Sign Out</button>
       </aside>
       <main>
         <div class="content">
           <div class="button">
             <button id="new-entry">New Entry</button>
-            <button id="update-entry">Update Entry</button>
           </div>
         </div>
         <footer>
