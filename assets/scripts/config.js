@@ -1,8 +1,11 @@
 'use strict'
 
+const successFailMessageId = '#message'
+const messageDelay = 10000
+
 let apiUrl
 const apiUrls = {
-  production: 'https://blooming-dawn-78235.herokuapp.com/',
+  production: 'https://blooming-dawn-78235.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
@@ -22,5 +25,7 @@ if (window.location.hostname === 'localhost') {
 
 module.exports = {
   apiUrl,
-  isNotProd
+  isNotProd,
+  successFailMessageId,
+  messageDelay
 }
