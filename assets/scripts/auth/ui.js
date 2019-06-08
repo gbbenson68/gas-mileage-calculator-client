@@ -1,7 +1,6 @@
 'use strict'
 const pkgName = 'ui'
 
-const config = require('../config')
 const store = require('../store')
 const util = require('../util')
 
@@ -10,10 +9,12 @@ const util = require('../util')
 */
 const onSignUpSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onSignUpSuccess()`, 'Signed up successfully! Please sign in to play.', true, responseData)
+  util.resetForm()
 }
 
 const onSignUpFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onSignUpFailure()`, 'Signed up failed.', false, responseData)
+  util.resetForm()
 }
 
 /*
@@ -21,10 +22,13 @@ const onSignUpFailure = responseData => {
 */
 const onSignInSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onSignInSuccess()`, 'Signed in successfully!', true, responseData)
+  store.user = responseData.user
+  util.resetForm()
 }
 
 const onSignInFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onSignInFailure()`, 'Signed in failed. Have you signed up yet?', false, responseData)
+  util.resetForm()
 }
 
 /*
@@ -32,10 +36,12 @@ const onSignInFailure = responseData => {
 */
 const onChangePasswordSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onChangePasswordSuccess()`, 'Password changed successfully!', true, responseData)
+  util.resetForm()
 }
 
 const onChangePasswordFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onChangePasswordFailure()`, 'Change password failed.', false, responseData)
+  util.resetForm()
 }
 
 /*
@@ -43,32 +49,12 @@ const onChangePasswordFailure = responseData => {
 */
 const onSignOutSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onSignOutSuccess()`, 'Goodbye!', true, responseData)
+  util.resetForm()
 }
 
 const onSignOutFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onSignOutFailure()`, 'Sign out failed.', false, responseData)
-}
-
-/*
-** ***** Index functions *****
-*/
-const onIndexSuccess = responseData => {
-  util.displaySuccessFail(`${pkgName}.onIndexSuccess()`, '', true, responseData)
-}
-
-const onIndexFailure = responseData => {
-  util.displaySuccessFail(`${pkgName}.onIndexFailure()`, 'Oops! Could retrieve data. Please try again.', false, responseData)
-}
-
-/*
-** ***** Show functions *****
-*/
-const onShowSuccess = responseData => {
-  util.displaySuccessFail(`${pkgName}.onShowSuccess()`, '', true, responseData)
-}
-
-const onShowFailure = responseData => {
-  util.displaySuccessFail(`${pkgName}.onShowFailure()`, '', false, responseData)
+  util.resetForm()
 }
 
 module.exports = {
@@ -79,9 +65,5 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure,
-  onIndexSuccess,
-  onIndexFailure,
-  onShowSuccess,
-  onShowFailure
+  onSignOutFailure
 }

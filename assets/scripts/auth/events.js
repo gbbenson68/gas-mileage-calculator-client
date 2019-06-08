@@ -65,10 +65,10 @@ const onSignIn = (event) => {
 }
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('click', onSignOut)
-  $('#change-pw').on('submit', onChangePassword)
+  $('#sign-up').on('submit', onSignUp) // This is a form.
+  $('#sign-in').on('submit', onSignIn) // This is a form.
+  $('#sign-out').on('click', onSignOut) // This is a button.
+  $('#change-pw').on('submit', onChangePassword) // This is a form.
 }
 
 module.exports = {

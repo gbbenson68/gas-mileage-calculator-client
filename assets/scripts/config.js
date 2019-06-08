@@ -1,6 +1,7 @@
 'use strict'
 
 const successFailMessageId = '#message'
+const formClassForReset = '.form-reset'
 const messageDelay = 10000
 
 let apiUrl
@@ -27,5 +28,6 @@ module.exports = {
   apiUrl,
   isNotProd,
   successFailMessageId,
+  formClassForReset,
   messageDelay
 }

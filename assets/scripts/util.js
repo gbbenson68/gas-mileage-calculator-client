@@ -50,8 +50,16 @@ const displaySuccessFail = (method, message, isSuccessful, object) => {
   $(config.successFailMessageId).addClass(displayClass)
 }
 
+/*
+**  Reset form fields that have a particular class.
+*/
+const resetForm = () => {
+  $('form').trigger('reset')
+}
+
 module.exports = {
   logMessage,
   logObject,
-  displaySuccessFail
+  displaySuccessFail,
+  resetForm
 }
