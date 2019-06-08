@@ -1,5 +1,6 @@
 'use strict'
-const pkgName = 'ui'
+const pkgName = 'calc.ui'
 
 module.exports = {
+
 }
