@@ -3,7 +3,7 @@ const pkgName = 'calc.events'
 
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
-const config = require('./config')
+const config = require('../config')
 const util = require('../util')
 
 /*
