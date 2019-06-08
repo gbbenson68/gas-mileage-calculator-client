@@ -1,8 +1,19 @@
 'use strict'
 
-const successFailMessageId = '#message'
+// Constants for controlling UI functionality
+const signUpId = '#sign-up'
+const signInId = '#sign-in'
+const signUpButtonId = '#sign-up-button'
+const signInButtonId = '#sign-in-button'
+const backButtonId = '#back-button'
+const signOutId = '#sign-out'
+const changePWId = '#change-pw'
+const newEntryButtonId = '#new-entry-button'
+
+const successFailMessageId = '#user-message'
 const formClassForReset = '.form-reset'
-const messageDelay = 10000
+const hiddenClass = 'hidden' // NOTE: Do not use a leading '.' here!!
+const messageDelay = 8000
 
 let apiUrl
 const apiUrls = {
@@ -25,9 +36,18 @@ if (window.location.hostname === 'localhost') {
 }
 
 module.exports = {
-  apiUrl,
-  isNotProd,
+  signUpId,
+  signInId,
+  signUpButtonId,
+  signInButtonId,
+  backButtonId,
+  signOutId,
+  changePWId,
+  newEntryButtonId,
   successFailMessageId,
   formClassForReset,
-  messageDelay
+  messageDelay,
+  hiddenClass,
+  apiUrl,
+  isNotProd
 }

@@ -16,6 +16,8 @@ header {
 
 aside {
   background-color: $navy-blue;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   position: fixed;
   width: 20%;
@@ -24,4 +26,14 @@ aside {
 .button {
   display: flex;
   justify-content: space-around;
+}
+
+.success,
+.failure {
+  color: $parchment;
+  font-size: 1.2 * $font-size;
+}
+
+.hidden {
+  display: none;
 }

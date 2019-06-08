@@ -57,9 +57,33 @@ const resetForm = () => {
   $('form').trigger('reset')
 }
 
+/*
+** Set timeout for messages.
+*/
+const timeoutMessage = () => {
+  setTimeout(() => $(config.successFailMessageId).text(''), config.messageDelay)
+}
+
+/*
+** hide object
+*/
+const hide = (id) => {
+  $(id).addClass(config.hiddenClass)
+}
+
+/*
+** show object
+*/
+const show = (id) => {
+  $(id).removeClass(config.hiddenClass)
+}
+
 module.exports = {
   logMessage,
   logObject,
   displaySuccessFail,
-  resetForm
+  resetForm,
+  timeoutMessage,
+  hide,
+  show
 }
