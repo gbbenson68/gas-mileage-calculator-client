@@ -6,8 +6,9 @@ const signInId = '#sign-in'
 const signUpButtonId = '#sign-up-button'
 const signInButtonId = '#sign-in-button'
 const backButtonId = '#back-button'
-const signOutId = '#sign-out'
+const signOutButtonId = '#sign-out-button'
 const changePWId = '#change-pw'
+const changePWIdButton = '#change-pw-button'
 const newEntryButtonId = '#new-entry-button'
 
 const successFailMessageId = '#user-message'
@@ -41,8 +42,9 @@ module.exports = {
   signUpButtonId,
   signInButtonId,
   backButtonId,
-  signOutId,
+  signOutButtonId,
   changePWId,
+  changePWIdButton,
   newEntryButtonId,
   successFailMessageId,
   formClassForReset,
