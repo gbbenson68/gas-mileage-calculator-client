@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
+      <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
       <!-- Do not add `script` tags-->
@@ -12,40 +13,44 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-        <header>
-          Gas Mileage Calculator
-        </header>
-        <main>
-          <section id='sign-in'>
-            <form>
-              <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-              <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-              <input type="submit" value="Sign In"/>
-            </form>
-          </section>
-          <section id='sign-up'>
-            <form>
-              <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-              <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-              <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
-              <input type="submit" value="Sign Up"/>
-            </form>
-          </section>
-          <section id='change-pw'>
-            <form>
-              <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
-              <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
-              <input type="submit" value="Change Password"/>
-            </form>
-          </section>
-          <section id='sign-out'>
-            <form>
-              <input type="submit" value="Sign Out"/>
-            </form>
-          </section>
-        </main>
+      <header>
+        Gas Mileage Calculator
+      </header>
+      <aside class="aside">
+        <section id='sign-in'>
+          <form>
+            <input type="email" name="credentials[email]" placeholder="Enter email here" required>
+            <input type="password" name="credentials[password]" placeholder="Enter password here" required>
+            <input type="submit" value="Sign In"/>
+          </form>
+        </section>
+        <section id='sign-up'>
+          <form>
+            <input type="email" name="credentials[email]" placeholder="Enter email here" required>
+            <input type="password" name="credentials[password]" placeholder="Enter password here" required>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
+            <input type="submit" value="Sign Up"/>
+          </form>
+        </section>
+        <section id='change-pw'>
+          <form>
+            <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
+            <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
+            <input type="submit" value="Change Password"/>
+          </form>
+        </section>
+        <button id="sign-out">Sign Out</button>
+      </aside>
+      <main>
+        <div class="content">
+          <div class="button">
+            <button id="new-entry">New Entry</button>
+            <button id="update-entry">Update Entry</button>
+          </div>
+        </div>
         <footer>
           © 2019 Guy B. Benson
         </footer>
+      </main>
     </body>
 </html>
