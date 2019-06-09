@@ -1,0 +1,18 @@
+{{#each readings as |reading|}}
+  <section data-id="{{reading.id}}" class='reading-entry'>
+    <h2>Date: {{reading.transaction_date}}</h2>
+    <h4>Odometer reading: {{reading.odometer_reading}}</h4>
+    <h4>
+      {{#if reading.price}}
+        {{reading.price}}
+      {{else}}
+        0.00
+      {{/if}}
+    </h4>
+    <h4>Comment: {{reading.comment}}</h4>
+    {{!-- {{> partial}} --}}
+    <button data-id="{{reading.id}}" class="calculator-button update-reading">Update Reading</button>
+    <button data-id="{{reading.id}}" class="calculator-button delete-reading">Delete Reading</button>
+  </section>
+
+{{/each}}

@@ -34,22 +34,30 @@ const show = (id) => {
 }
 
 /*
-** createReading()
+** create()
 */
-const createReading = () => {
+const create = (formData) => {
   util.logMessage(`${pkgName}.createReading()`)
+  return $.ajax({
+    url: config.apiUrl + '/readings',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
 }
 
 /*
-** updateReading()
+** update()
 */
-const updateReading = () => {
+const update = () => {
   util.logMessage(`${pkgName}.updateReading()`)
 }
 
 module.exports = {
   index,
   show,
-  createReading,
-  updateReading
+  create,
+  update
 }

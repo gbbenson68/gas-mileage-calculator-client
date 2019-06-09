@@ -22,6 +22,7 @@ const successFailMessageId = '#user-message'
 const formClassForReset = '.form-reset'
 const authButtonClass = '.auth-button'
 const calcButtonClass = '.calculator-button'
+const contentId = '#content'
 const hiddenClass = 'hidden' // NOTE: Do not use a leading '.' here!!
 const messageDelay = 8000
 
@@ -66,6 +67,7 @@ module.exports = {
   formClassForReset,
   authButtonClass,
   calcButtonClass,
+  contentId,
   messageDelay,
   hiddenClass,
   apiUrl,

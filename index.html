@@ -18,6 +18,7 @@
       </header>
       <div class='main-wrapper'>
         <aside>
+          <div id='user-display'></div>
           <form id='sign-in' class='hidden'>
             <fieldset>
               <input type="email" name="credentials[email]" placeholder="Enter email here" required>
@@ -49,49 +50,54 @@
             <div id='user-message'></div>
           </aside>
           <main>
-            <div class="content">
-              <form id='new-entry' class='hidden'>
-                <fieldset>
-                  <legend>New Entry</legend>
-                  <input type='date' name='readings[transaction_date]' placeholder='Date' required>
-                  <input type='text' name='readings[odometer_reading]' placeholder='Odometer' required>
-                  <!--
-                  <div class='odo-radio'>
-                  <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
-                  <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
-                  </div>
-                  -->
-                  <input type='text' name='readings[price]' placeholder='Price'/>
-                  <!--
-                  <div class='price-radio'>
-                  <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
-                  <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
-                  </div>
-                  -->
-                  <input type='text' name='readings[comment]' placeholder='Comment'/>
-                  <input type='submit' value='Enter'/>
-                </fieldset>
-              </form>
-              <button id='new-entry-button' class='calculator-button'>New Entry</button>
-              <button id='new-entry-back-button' class='calculator-button hidden'>Back</button>
-              <form id='update-entry'>
-                <fieldset>
-                  <legend>Update Entry</legend>
-                  <input type='text' name='readings[price]' placeholder='Price'/>
-                  <!--
-                  <div class='price-radio'>
-                  <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
-                  <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
-                  </div>
-                  -->
-                  <input type='text' name='readings[comment]' placeholder='Comment'/>
-                  <input type='submit' value='Enter'/>
-                </fieldset>
-              </form>
-              <button id='load-entries-button' class='calculator-button'>Load Entries</button>
-              <button id='update-entry-button' class='calculator-button'>Update Entry</button>
-              <button id='delete-entry-button' class='calculator-button'>Delete Entry</button>
-            </div>
+            <form id='new-entry' class='hidden'>
+              <fieldset>
+                <legend>New Entry</legend>
+                <input type='date' name='reading[transaction_date]' placeholder='Date' required>
+                <input type='text' name='reading[odometer_reading]' placeholder='Odometer Reading' required>
+                <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
+                <input type='text' name='reading[odometer_units]' value='miles' class='hidden' required>
+                <!--
+                <div class='odo-radio'>
+                <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
+                <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
+                </div>
+                -->
+                <input type='text' name='reading[price]' placeholder='0.00'/>
+                <input type='text' name='reading[price_units]' value='US Dollars' class='hidden'/>
+                <!--
+                <div class='price-radio'>
+                <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
+                <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
+                </div>
+                -->
+                <input type='text' name='reading[comment]' placeholder='Comment'/>
+                <input type='submit' value='Enter'/>
+              </fieldset>
+            </form>
+            <button id='new-entry-button' class='calculator-button'>New Entry</button>
+            <button id='new-entry-back-button' class='calculator-button hidden'>Back</button>
+            <form id='update-entry'>
+              <fieldset>
+                <legend>Update Entry</legend>
+                <input type='text' name='reading[price]' placeholder='Price'/>
+                <!--
+                <div class='price-radio'>
+                <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
+                <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
+                </div>
+                -->
+                <input type='text' name='reading[comment]' placeholder='Comment'/>
+                <input type='submit' value='Enter'/>
+              </fieldset>
+            </form>
+            <button id='load-entries-button' class='calculator-button'>Load Entries</button>
+            <!--
+            <button id='update-entry-button' class='calculator-button'>Update Entry</button>
+            <button id='delete-entry-button' class='calculator-button'>Delete Entry</button>
+            -->
+            <div id='content' class='content'></div>
+            <div id='summary' class='summary'></div>
           </main>
         </div>
       <footer class='footer'>

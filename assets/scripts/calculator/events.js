@@ -14,18 +14,9 @@ const util = require('../util')
 const onLoadEntries = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onLoadEntries()`)
-//  api.index()
-//    .then(ui.onIndexSuccess)
-//    .catch(ui.onIndexFailure)
-}
-
-/*
-** onGetEntry()
-**    load one Entry
-*/
-const onGetEntry = (event) => {
-  event.preventDefault()
-  util.logMessage(`${pkgName}.onGetEntry()`)
+  api.index()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
 }
 
 /*
@@ -35,9 +26,11 @@ const onGetEntry = (event) => {
 const onNewEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onNewEntry()`)
-//  api.create()
-//    .then(ui.onShowSuccess)
-//    .catch(ui.onShowFailure)
+  const formData = getFormFields(event.target)
+  util.logObject(formData)
+  api.create(formData)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateFailure)
 }
 
 /*
@@ -47,9 +40,10 @@ const onNewEntry = (event) => {
 const onUpdateEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onUpdateEntry()`)
+  // TODO - Do not update if input fields are empty!
 //  api.create()
-//    .then(ui.onShowSuccess)
-//    .catch(ui.onShowFailure)
+//    .then(ui.onUpdateSuccess)
+//    .catch(ui.onUpdateFailure)
 }
 
 /*
@@ -73,6 +67,8 @@ const hideNewEntryForm = () => {
 const addHandlers = () => {
   $(config.newEntryButtonId).on('click', showNewEntryForm)
   $(config.newEntryBackButtonId).on('click', hideNewEntryForm)
+  $(config.newEntryId).on('submit', onNewEntry)
+  $(config.updateEntryId).on('submit', onUpdateEntry)
   $(config.loadEntriesButtonId).on('click', onLoadEntries)
 }
 
