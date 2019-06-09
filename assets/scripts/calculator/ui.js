@@ -1,6 +1,8 @@
 'use strict'
 const pkgName = 'calc.ui'
 
+const config = require('../config')
+const store = require('../store')
 const util = require('../util')
 
 /*
