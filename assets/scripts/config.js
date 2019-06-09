@@ -8,11 +8,14 @@ const signInButtonId = '#sign-in-button'
 const backButtonId = '#back-button'
 const signOutButtonId = '#sign-out-button'
 const changePWId = '#change-pw'
-const changePWIdButton = '#change-pw-button'
+const changePWButtonId = '#change-pw-button'
+const changePWBackButtonId = '#change-pw-back-button'
 const newEntryButtonId = '#new-entry-button'
 
 const successFailMessageId = '#user-message'
 const formClassForReset = '.form-reset'
+const authButtonClass = '.auth-button'
+const calcButtonClass = '.calculator-button'
 const hiddenClass = 'hidden' // NOTE: Do not use a leading '.' here!!
 const messageDelay = 8000
 
@@ -44,10 +47,13 @@ module.exports = {
   backButtonId,
   signOutButtonId,
   changePWId,
-  changePWIdButton,
+  changePWButtonId,
+  changePWBackButtonId,
   newEntryButtonId,
   successFailMessageId,
   formClassForReset,
+  authButtonClass,
+  calcButtonClass,
   messageDelay,
   hiddenClass,
   apiUrl,

@@ -63,15 +63,14 @@ const onSignIn = (event) => {
   util.logObject(formData)
   api.signIn(formData)
     .then(ui.onSignInSuccess)
-    .catch(ui.onSignInFail)
+    .catch(ui.onSignInFailure)
 }
 
 /*
 ** showSignUp()
 */
 const showSignUp = () => {
-  util.hide(config.signUpButtonId)
-  util.hide(config.signInButtonId)
+  util.hide(config.authButtonClass)
   util.show(config.signUpId)
   util.show(config.backButtonId)
 }
@@ -80,8 +79,7 @@ const showSignUp = () => {
 ** showSignIn()
 */
 const showSignIn = () => {
-  util.hide(config.signUpButtonId)
-  util.hide(config.signInButtonId)
+  util.hide(config.authButtonClass)
   util.show(config.signInId)
   util.show(config.backButtonId)
 }
@@ -90,20 +88,41 @@ const showSignIn = () => {
 ** Hides either sign-in or sign-up and shows other buttons
 */
 const backUp = () => {
-  util.hide(config.backButtonId)
+  util.hide(config.authButtonClass)
   util.hide(config.signUpId)
   util.hide(config.signInId)
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
 }
 
+/*
+** expose change password form
+*/
+const showChangePWForm = () => {
+  util.hide(config.authButtonClass)
+  util.show(config.changePWId)
+  util.show(config.changePWBackButtonId)
+}
+
+/*
+** go back from Change PW form
+*/
+const changePWBackUp = () => {
+  util.hide(config.authButtonClass)
+  util.hide(config.changePWId)
+  util.show(config.changePWButtonId)
+  util.show(config.signOutButtonId)
+}
+
 const addHandlers = () => {
   $(config.signUpId).on('submit', onSignUp) // This is a form.
   $(config.signInId).on('submit', onSignIn) // This is a form.
-  $(config.signOutId).on('click', onSignOut) // This is a button.
+  $(config.signOutButtonId).on('click', onSignOut) // This is a button.
   $(config.changePWId).on('submit', onChangePassword) // This is a form.
   $(config.signUpButtonId).on('click', showSignUp) // This is a button.
   $(config.signInButtonId).on('click', showSignIn) // This is a button.
+  $(config.changePWButtonId).on('click', showChangePWForm) // This is a button.
+  $(config.changePWBackButtonId).on('click', changePWBackUp) // This is a button.
   $(config.backButtonId).on('click', backUp) // This is a button.
 }
 
