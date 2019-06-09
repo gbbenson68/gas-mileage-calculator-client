@@ -52,7 +52,7 @@
             <div class="content">
               <form id='new-entry'>
                 <fieldset>
-                  <legend>Please enter valid values:</legend>
+                  <legend>New Entry</legend>
                   <input type='date' name='readings[transaction_date]' placeholder='Date' required>
                   <input type='text' name='readings[odometer_reading]' placeholder='Odometer' required>
                   <!--
@@ -72,8 +72,27 @@
                   <input type='submit' value='Enter'/>
                 </fieldset>
               </form>
+              <form id='update-entry'>
+                <fieldset>
+                  <legend>Update Entry</legend>
+                  <input type='text' name='readings[price]' placeholder='Price'/>
+                  <!--
+                  <div class='price-radio'>
+                  <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
+                  <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
+                  </div>
+                  -->
+                  <input type='text' name='readings[comment]' placeholder='Comment'/>
+                  <input type='submit' value='Enter'/>
+                </fieldset>
+              </form>
+              <!--
               <button id='load-entries-button' class='calculator-button hidden'>Load Entries</button>
               <button id='new-entry-button' class='calculator-button hidden'>New Entry</button>
+              -->
+              <button id='load-entries-button' class='calculator-button'>Load Entries</button>
+              <button id='new-entry-button' class='calculator-button'>New Entry</button>
+              <button id='delete-entry-button' class='calculator-button'>Delete Entry</button>
             </div>
           </main>
         </div>
