@@ -11,6 +11,7 @@ const changePWId = '#change-pw'
 const changePWButtonId = '#change-pw-button'
 const changePWBackButtonId = '#change-pw-back-button'
 const newEntryButtonId = '#new-entry-button'
+const loadEntriesButtonId = '#load-entries-button'
 
 const successFailMessageId = '#user-message'
 const formClassForReset = '.form-reset'
@@ -50,6 +51,7 @@ module.exports = {
   changePWButtonId,
   changePWBackButtonId,
   newEntryButtonId,
+  loadEntriesButtonId,
   successFailMessageId,
   formClassForReset,
   authButtonClass,
