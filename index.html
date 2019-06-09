@@ -56,11 +56,20 @@
                 <input type='date' name='reading[transaction_date]' placeholder='Date' required>
                 <input type='text' name='reading[odometer_reading]' placeholder='Odometer Reading' required>
                 <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
-                <input type='text' name='reading[odometer_units]' value='miles' class='hidden' required>
+                <input type='text' name='reading[odometer_units]' value='mi' class='hidden' required>
                 <!--
                 <div class='odo-radio'>
-                <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
-                <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
+                  <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
+                  <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
+                </div>
+                -->
+                <input type='text' name='reading[fuel_amount]' placeholder='Fuel Amount' required>
+                <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
+                <input type='text' name='reading[fuel_units]' value='gal' class='hidden' required>
+                <!--
+                <div class='fuel-radio'>
+                  <input type='radio' name='readings[fuel_units]' value='gal' checked/> Gallons<br>
+                  <input type="radio" name='readings[fuel_units]' value='L'/> Liters<br>
                 </div>
                 -->
                 <input type='text' name='reading[price]' placeholder='0.00'/>

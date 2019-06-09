@@ -6,9 +6,36 @@ const store = require('../store')
 const util = require('../util')
 const listReadingsTemplate = require('../templates/readings_listing.handlebars')
 
+/*
+** renderSummary()
+**
+** NOTE: As we cannot guarantee in which order the data is returned, we have to
+**       loop over the data twice to determine max and min.
+*/
 const renderSummary = (readings) => {
-  let max_odo = 0
-  let min_odo = 0
+  let maxOdo = 0
+  let fuelSum = 0
+  let priceSum = 0.0
+  readings.forEach((reading) => {
+    fuelSum = fuelSum + reading.fuel_amount // The linter complains if I use +=
+    priceSum = priceSum + reading.price // The linter complains if I use +=
+    if (reading.odometer_reading > maxOdo) {
+      maxOdo = reading.odometer_reading
+    }
+  })
+
+  let minOdo = maxOdo // To make sure we get minimum.
+  readings.forEach((reading) => {
+    if (reading.odometer_reading < minOdo) {
+      minOdo = reading.odometer_reading
+    }
+  })
+  const milesDriven = maxOdo - minOdo
+  const milesPerGallon = milesDriven / fuelSum
+  const pricePerGallon = priceSum / fuelSum
+
+  const textToRender = `<h2>Miles driven: ${milesDriven}   MPG: ${milesPerGallon}   PPG: ${pricePerGallon}</h2>`
+  $(config.summaryId).html(textToRender)
 }
 
 /*

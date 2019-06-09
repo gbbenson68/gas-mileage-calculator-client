@@ -23,6 +23,7 @@ const formClassForReset = '.form-reset'
 const authButtonClass = '.auth-button'
 const calcButtonClass = '.calculator-button'
 const contentId = '#content'
+const summaryId ='#summary'
 const hiddenClass = 'hidden' // NOTE: Do not use a leading '.' here!!
 const messageDelay = 8000
 
@@ -68,6 +69,7 @@ module.exports = {
   authButtonClass,
   calcButtonClass,
   contentId,
+  summaryId,
   messageDelay,
   hiddenClass,
   apiUrl,
