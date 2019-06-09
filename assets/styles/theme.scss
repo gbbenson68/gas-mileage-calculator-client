@@ -16,17 +16,18 @@ header {
 
 aside {
   background-color: $navy-blue;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  position: fixed;
-  width: 20%;
+  // Comment these out until I figure out how to do what I want.
+  // display: flex;
+  // flex-direction: column;
+  // height: 100vh;
+  // position: fixed;
+  // width: 20%;
 }
 
-.button {
-  display: flex;
-  justify-content: space-around;
-}
+// .button {
+//   display: flex;
+//   justify-content: space-around;
+// }
 
 .success,
 .failure {

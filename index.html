@@ -16,65 +16,67 @@
       <header>
         Gas Mileage Calculator
       </header>
-      <aside class="aside">
-        <form id='sign-in' class='hidden'>
-          <fieldset>
-            <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-            <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-            <input type="submit" value="Sign In"/>
-          </fieldset>
-        </form>
-        <form id='sign-up' class='hidden'>
-          <fieldset>
-            <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-            <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
-            <input type="submit" value="Sign Up"/>
-          </fieldset>
-        </form>
-        <form id='change-pw' class='hidden'>
-          <fieldset>
-            <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
-            <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
-            <input type="submit" value="Change Password"/>
-          </fieldset>
-        </form>
-        <button id='sign-up-button' class='auth-button'>Sign Up</button>
-        <button id='sign-in-button' class='auth-button'>Sign In</button>
-        <button id='change-pw-button' class='auth-button hidden'>Change Password</button>
-        <button id='sign-out-button' class='auth-button hidden'>Sign Out</button>
-        <button id='back-button' class='auth-button hidden'>Back</button>
-        <button id='change-pw-back-button' class='auth-button hidden'>Back</button>
-        <div id='user-message'></div>
-      </aside>
-      <main>
-        <div class="content">
-          <form id='new-entry'>
+      <div class='main-wrapper'>
+        <aside>
+          <form id='sign-in' class='hidden'>
             <fieldset>
-              <legend>Please enter valid values:</legend>
-              <input type='date' name='readings[transaction_date]' placeholder='Date' required>
-              <input type='text' name='readings[odometer_reading]' placeholder='Odometer' required>
-              <!--
-              <div class='odo-radio'>
-                <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
-                <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
-              </div>
-              -->
-              <input type='text' name='readings[price]' placeholder='Price'/>
-              <!--
-              <div class='price-radio'>
-                <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
-                <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
-              </div>
-              -->
-              <input type='text' name='readings[comment]' placeholder='Comment'/>
-              <input type='submit' value='Enter'/>
+              <input type="email" name="credentials[email]" placeholder="Enter email here" required>
+              <input type="password" name="credentials[password]" placeholder="Enter password here" required>
+              <input type="submit" value="Sign In"/>
             </fieldset>
           </form>
-          <button id='load-entries-button' class='calculator-button hidden'>Load Entries</button>
-          <button id='new-entry-button' class='calculator-button hidden'>New Entry</button>
+          <form id='sign-up' class='hidden'>
+            <fieldset>
+              <input type="email" name="credentials[email]" placeholder="Enter email here" required>
+              <input type="password" name="credentials[password]" placeholder="Enter password here" required>
+              <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
+              <input type="submit" value="Sign Up"/>
+            </fieldset>
+          </form>
+            <form id='change-pw' class='hidden'>
+              <fieldset>
+                <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
+                <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
+                <input type="submit" value="Change Password"/>
+              </fieldset>
+            </form>
+            <button id='sign-up-button' class='auth-button'>Sign Up</button>
+            <button id='sign-in-button' class='auth-button'>Sign In</button>
+            <button id='change-pw-button' class='auth-button hidden'>Change Password</button>
+            <button id='sign-out-button' class='auth-button hidden'>Sign Out</button>
+            <button id='back-button' class='auth-button hidden'>Back</button>
+            <button id='change-pw-back-button' class='auth-button hidden'>Back</button>
+            <div id='user-message'></div>
+          </aside>
+          <main>
+            <div class="content">
+              <form id='new-entry'>
+                <fieldset>
+                  <legend>Please enter valid values:</legend>
+                  <input type='date' name='readings[transaction_date]' placeholder='Date' required>
+                  <input type='text' name='readings[odometer_reading]' placeholder='Odometer' required>
+                  <!--
+                  <div class='odo-radio'>
+                  <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
+                  <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
+                  </div>
+                  -->
+                  <input type='text' name='readings[price]' placeholder='Price'/>
+                  <!--
+                  <div class='price-radio'>
+                  <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
+                  <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
+                  </div>
+                  -->
+                  <input type='text' name='readings[comment]' placeholder='Comment'/>
+                  <input type='submit' value='Enter'/>
+                </fieldset>
+              </form>
+              <button id='load-entries-button' class='calculator-button hidden'>Load Entries</button>
+              <button id='new-entry-button' class='calculator-button hidden'>New Entry</button>
+            </div>
+          </main>
         </div>
-      </main>
       <footer class='footer'>
         © 2019 Guy B. Benson
       </footer>
