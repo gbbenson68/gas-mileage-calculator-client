@@ -1,10 +1,9 @@
 #!/bin/bash
 
-
-if [ $# -ne 9 ]
+if [ $# -ne 11 ]
 then
   echo
-  echo "     Usage: ${0} <URL> <TOKEN> <USER_ID> <DATE> <ODO_READING> <ODO_UNITS> <PRICE> <PRICE_UNITS> <COMMENT>"
+  echo "     Usage: ${0} <URL> <TOKEN> <USER_ID> <DATE> <ODO_READING> <ODO_UNITS> <FUEL_AMT> <FUEL_UNITS> <PRICE> <PRICE_UNITS> <COMMENT>"
   echo
   exit 1
 fi
@@ -15,19 +14,23 @@ USER_ID=${3}
 DATE=${4}
 ODOREAD=${5}
 ODOUNIT=${6}
-PRICE=${7}
-PRICEUNIT=${8}
-COMMENT=${9}
+FUELAMT=${7}
+FUELUN=${8}
+PRICE=${9}
+PRICEUNIT=${10}
+COMMENT=${11}
 
-#echo ${URL}
-#echo ${TOKEN}
-#echo ${USER_ID}
-#echo ${DATE}
-#echo ${ODOREAD}
-#echo ${ODOUNIT}
-#echo ${PRICE}
-#echo ${PRICEUNIT}
-#echo ${COMMENT}
+#echo "URL = ${URL}"
+#echo "TOKEN = ${TOKEN}"
+#echo "USER_ID = ${USER_ID}"
+#echo "DATE = ${DATE}"
+#echo "ODOREAD = ${ODOREAD}"
+#echo "ODOUNIT = ${ODOUNIT}"
+#echo "FUELAMT = ${FUELAMT}"
+#echo "FUELUN = ${FUELUN}"
+#echo "PRICE = ${PRICE}"
+#echo "PRICEUNIT = ${PRICEUNIT}"
+#echo "COMMENT = ${COMMENT}"
 #exit 1
 
 curl "${URL}/readings" \
@@ -41,6 +44,8 @@ curl "${URL}/readings" \
       "transaction_date": "'"${DATE}"'",
       "odometer_reading": "'"${ODOREAD}"'",
       "odometer_units": "'"${ODOUNIT}"'",
+      "fuel_amount": "'"${FUELAMT}"'",
+      "fuel_units": "'"${FUELUN}"'",
       "price": "'"${PRICE}"'",
       "price_units": "'"${PRICEUNIT}"'",
       "comment": "'"${COMMENT}"'"
