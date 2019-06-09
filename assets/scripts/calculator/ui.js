@@ -34,7 +34,7 @@ const renderSummary = (readings) => {
   const milesPerGallon = milesDriven / fuelSum
   const pricePerGallon = priceSum / fuelSum
 
-  const textToRender = `<h2>Miles driven: ${milesDriven}   MPG: ${milesPerGallon}   PPG: ${pricePerGallon}</h2>`
+  const textToRender = `<h2>Miles driven: ${milesDriven}   Total fuel: ${fuelSum}   MPG: ${milesPerGallon}   PPG: ${pricePerGallon}</h2>`
   $(config.summaryId).html(textToRender)
 }
 

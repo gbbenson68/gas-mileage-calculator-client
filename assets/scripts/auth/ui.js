@@ -85,6 +85,8 @@ const onSignOutSuccess = responseData => {
   util.hide(config.calcButtonClass)
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
+  $(config.contentId).html('')
+  $(config.summaryId).html('')
 }
 
 const onSignOutFailure = responseData => {
