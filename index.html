@@ -50,7 +50,7 @@
           </aside>
           <main>
             <div class="content">
-              <form id='new-entry'>
+              <form id='new-entry' class='hidden'>
                 <fieldset>
                   <legend>New Entry</legend>
                   <input type='date' name='readings[transaction_date]' placeholder='Date' required>
@@ -72,6 +72,8 @@
                   <input type='submit' value='Enter'/>
                 </fieldset>
               </form>
+              <button id='new-entry-button' class='calculator-button'>New Entry</button>
+              <button id='new-entry-back-button' class='calculator-button hidden'>Back</button>
               <form id='update-entry'>
                 <fieldset>
                   <legend>Update Entry</legend>
@@ -87,7 +89,6 @@
                 </fieldset>
               </form>
               <button id='load-entries-button' class='calculator-button'>Load Entries</button>
-              <button id='new-entry-button' class='calculator-button'>New Entry</button>
               <button id='update-entry-button' class='calculator-button'>Update Entry</button>
               <button id='delete-entry-button' class='calculator-button'>Delete Entry</button>
             </div>

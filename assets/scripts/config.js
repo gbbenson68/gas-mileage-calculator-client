@@ -12,6 +12,7 @@ const changePWButtonId = '#change-pw-button'
 const changePWBackButtonId = '#change-pw-back-button'
 const newEntryId = '#new-entry'
 const newEntryButtonId = '#new-entry-button'
+const newEntryBackButtonId = '#new-entry-back-button'
 const loadEntriesButtonId = '#load-entries-button'
 const updateEntryId = '#update-entry'
 const updateEntryButtonId = '#update-entry-button'
@@ -56,6 +57,7 @@ module.exports = {
   changePWBackButtonId,
   newEntryId,
   newEntryButtonId,
+  newEntryBackButtonId,
   loadEntriesButtonId,
   updateEntryId,
   updateEntryButtonId,
