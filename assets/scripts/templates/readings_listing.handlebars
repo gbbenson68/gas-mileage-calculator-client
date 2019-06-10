@@ -4,9 +4,9 @@
     <h4>Odometer reading: {{reading.odometer_reading}}</h4>
     <h4>Price:
       {{#if reading.price}}
-        {{reading.price}}
+        {{formatFloat reading.price}}
       {{else}}
-        0.00
+        {{formatFloat 0}}
       {{/if}}
     </h4>
     <h4>Comment: {{reading.comment}}</h4>
