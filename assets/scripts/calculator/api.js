@@ -51,9 +51,17 @@ const createEntry = (formData) => {
 /*
 ** updateEntry()
 */
-const updateEntry = (id) => {
+const updateEntry = (formData, id) => {
   util.logMessage(`${pkgName}.updateEntry()`)
-  return $.ajax()
+  util.logObject(formData)
+  return $.ajax({
+    url: config.apiUrl + `/readings/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
 }
 
 /*

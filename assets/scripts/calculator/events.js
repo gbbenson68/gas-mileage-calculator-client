@@ -67,10 +67,11 @@ const onNewEntry = (event) => {
 const onUpdateEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onUpdateEntry()`)
-  util.logObject(event.target)
   const formData = getFormFields(event.target)
+  util.logObject(formData)
+  const id = $(event.target).data('id')
   // TODO - Do not update if input fields are empty!
-  api.updateEntry(formData)
+  api.updateEntry(formData, id)
     .then(function (data) {
       onLoadEntries(event)
     })
