@@ -20,6 +20,18 @@ const onLoadEntries = (event) => {
 }
 
 /*
+** onIndex()
+**    separate API call for summary load only
+*/
+const onIndex = (event) => {
+  event.preventDefault()
+  util.logMessage(`${pkgName}.onIndex()`)
+  api.index()
+    .then(ui.onIndexSuccessSilent)
+    .catch(ui.onIndexFailure)
+}
+
+/*
 ** onNewEntry()
 **    event handler for new reading
 */
@@ -40,6 +52,19 @@ const onNewEntry = (event) => {
 const onUpdateEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onUpdateEntry()`)
+  // TODO - Do not update if input fields are empty!
+//  api.create()
+//    .then(ui.onUpdateSuccess)
+//    .catch(ui.onUpdateFailure)
+}
+
+/*
+** onUpdateEntry()
+**    event handler for update entry
+*/
+const onDeleteEntry = (event) => {
+  event.preventDefault()
+  util.logMessage(`${pkgName}.onDeleteEntry()`)
   // TODO - Do not update if input fields are empty!
 //  api.create()
 //    .then(ui.onUpdateSuccess)
@@ -68,10 +93,10 @@ const addHandlers = () => {
   $(config.newEntryButtonId).on('click', showNewEntryForm)
   $(config.newEntryBackButtonId).on('click', hideNewEntryForm)
   $(config.newEntryId).on('submit', onNewEntry)
-  $(config.updateEntryId).on('submit', onUpdateEntry)
   $(config.loadEntriesButtonId).on('click', onLoadEntries)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onIndex
 }

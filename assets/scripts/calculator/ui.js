@@ -46,11 +46,16 @@ const renderSummary = (readings) => {
 /*
 ** ***** Index functions *****
 */
+const onIndexSuccessSilent = responseData => {
+  util.displaySuccessFail(`${pkgName}.onIndexSuccessSilent()`, '', true, responseData)
+  renderSummary(responseData.readings)
+}
+
 const onIndexSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onIndexSuccess()`, '', true, responseData)
   const textToRender = listReadingsTemplate({readings: responseData.readings})
   $(config.contentId).html(textToRender)
-  renderSummary(responseData.readings)
+  onIndexSuccessSilent(responseData)
 }
 
 const onIndexFailure = responseData => {
@@ -82,6 +87,7 @@ const onUpdateFailure = responseData => {
 }
 module.exports = {
   onIndexSuccess,
+  onIndexSuccessSilent,
   onIndexFailure,
   onCreateSuccess,
   onCreateFailure,
