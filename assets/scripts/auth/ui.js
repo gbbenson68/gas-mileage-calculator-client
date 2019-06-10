@@ -41,6 +41,7 @@ const onSignInSuccess = responseData => {
   util.show(config.signOutButtonId)
   util.show(config.calcButtonClass)
   util.hide(config.newEntryBackButtonId)
+  util.hide(config.hideEntriesButtonId)
 
   // Auto-load summary information
   calcEvents.onIndex()

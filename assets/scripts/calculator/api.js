@@ -34,9 +34,9 @@ const show = (id) => {
 }
 
 /*
-** create()
+** createEntry()
 */
-const create = (formData) => {
+const createEntry = (formData) => {
   util.logMessage(`${pkgName}.createReading()`)
   return $.ajax({
     url: config.apiUrl + '/readings',
@@ -49,15 +49,31 @@ const create = (formData) => {
 }
 
 /*
-** update()
+** updateEntry()
 */
-const update = () => {
-  util.logMessage(`${pkgName}.updateReading()`)
+const updateEntry = (id) => {
+  util.logMessage(`${pkgName}.updateEntry()`)
+  return $.ajax()
+}
+
+/*
+** deleteEntry()
+*/
+const deleteEntry = (id) => {
+  util.logMessage(`${pkgName}.deleteEntry()`)
+  return $.ajax({
+    url: config.apiUrl + `/readings/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
 }
 
 module.exports = {
   index,
   show,
-  create,
-  update
+  createEntry,
+  updateEntry,
+  deleteEntry
 }

@@ -9,7 +9,6 @@ const util = require('../util')
 
 /*
 ** onLoadEntries()
-**    event handler for new reading
 */
 const onLoadEntries = (event) => {
   event.preventDefault()
@@ -20,8 +19,17 @@ const onLoadEntries = (event) => {
 }
 
 /*
+** onHideEntries()
+*/
+const onHideEntries = (event) => {
+  event.preventDefault()
+  $(config.contentId).html('')
+  util.hide(config.hideEntriesButtonId)
+  util.show(config.loadEntriesButtonId)
+}
+
+/*
 ** onIndex()
-**    separate API call for summary load only
 */
 const onIndex = (event) => {
   // Need this to prevent error on load from sign-in
@@ -36,42 +44,56 @@ const onIndex = (event) => {
 
 /*
 ** onNewEntry()
-**    event handler for new reading
 */
 const onNewEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onNewEntry()`)
   const formData = getFormFields(event.target)
   util.logObject(formData)
-  api.create(formData)
-    .then(ui.onCreateSuccess)
+  api.createEntry(formData)
+    .then(function (data) {
+      util.resetForm()
+      util.hide(config.newEntryId)
+      util.hide(config.newEntryBackButtonId)
+      util.show(config.newEntryButtonId)
+      onLoadEntries(event)
+    })
     .catch(ui.onCreateFailure)
 }
 
 /*
 ** onUpdateEntry()
-**    event handler for update entry
 */
 const onUpdateEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onUpdateEntry()`)
+  util.logObject(event.target)
+
+  const id = $(event.target).data('id')
+  util.logMessage(`${pkgName}.onDeleteEntry()`, `data-id = ${id}`)
   // TODO - Do not update if input fields are empty!
-//  api.create()
-//    .then(ui.onUpdateSuccess)
-//    .catch(ui.onUpdateFailure)
+  api.updateEntry(id)
+    .then(function (data) {
+      onLoadEntries(event)
+    })
+    .catch(ui.onUpdateFailure)
 }
 
 /*
 ** onUpdateEntry()
-**    event handler for update entry
 */
 const onDeleteEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onDeleteEntry()`)
-  // TODO - Do not update if input fields are empty!
-//  api.create()
-//    .then(ui.onUpdateSuccess)
-//    .catch(ui.onUpdateFailure)
+  util.logObject(event.target)
+
+  const id = $(event.target).data('id')
+  util.logMessage(`${pkgName}.onDeleteEntry()`, `data-id = ${id}`)
+  api.deleteEntry(id)
+    .then(function (data) {
+      onLoadEntries(event)
+    })
+    .catch(ui.onDeleteFailure)
 }
 
 /*
@@ -97,6 +119,9 @@ const addHandlers = () => {
   $(config.newEntryBackButtonId).on('click', hideNewEntryForm)
   $(config.newEntryId).on('submit', onNewEntry)
   $(config.loadEntriesButtonId).on('click', onLoadEntries)
+  $(config.hideEntriesButtonId).on('click', onHideEntries)
+  $(config.contentId).on('click', '.update-reading', onUpdateEntry)
+  $(config.contentId).on('click', '.delete-reading', onDeleteEntry)
 }
 
 module.exports = {

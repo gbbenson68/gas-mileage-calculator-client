@@ -63,6 +63,8 @@ const onIndexSuccess = responseData => {
   const textToRender = listReadingsTemplate({readings: responseData.readings})
   $(config.contentId).html(textToRender)
   onIndexSuccessSilent(responseData)
+  util.hide(config.loadEntriesButtonId)
+  util.show(config.hideEntriesButtonId)
 }
 
 const onIndexFailure = responseData => {
@@ -73,12 +75,7 @@ const onIndexFailure = responseData => {
 /*
 ** ***** Create functions *****
 */
-const onCreateSuccess = responseData => {
-  util.displaySuccessFail(`${pkgName}.onCreateSuccess()`, 'Create success!', true, responseData)
-  util.logObject(responseData)
-  util.resetForm()
-}
-
+// NOTE: There is no create success function here - we just load the details
 const onCreateFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onCreateFailure()`, 'Create failed!', false, responseData)
   util.logObject(responseData)
@@ -91,19 +88,24 @@ const onCreateFailure = responseData => {
 /*
 ** ***** Update functions *****
 */
-const onUpdateSuccess = responseData => {
-  util.displaySuccessFail(`${pkgName}.onUpdateSuccess()`, '', true, responseData)
+// NOTE: There is no update success function here - we just reload the details
+const onUpdateFailure = responseData => {
+  util.displaySuccessFail(`${pkgName}.onUpdateFailure()`, 'Update failed. Please try again.', false, responseData)
 }
 
-const onUpdateFailure = responseData => {
-  util.displaySuccessFail(`${pkgName}.onUpdateFailure()`, '', false, responseData)
+/*
+** ***** Delete functions *****
+*/
+// NOTE: There is no update success function here - we just reload the details
+const onDeleteFailure = responseData => {
+  util.displaySuccessFail(`${pkgName}.onUpdateFailure()`, 'Delete failed. Please try again.', false, responseData)
 }
+
 module.exports = {
   onIndexSuccess,
   onIndexSuccessSilent,
   onIndexFailure,
-  onCreateSuccess,
   onCreateFailure,
-  onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  onDeleteFailure
 }

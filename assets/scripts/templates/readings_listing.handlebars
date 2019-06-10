@@ -2,6 +2,7 @@
   <section data-id="{{reading.id}}" class='reading-entry'>
     <h2>Date: {{reading.transaction_date}}</h2>
     <h4>Odometer reading: {{reading.odometer_reading}}</h4>
+    <h4>Fuel amount: {{reading.fuel_amount}}</h4>
     <h4>Price:
       {{#if reading.price}}
         {{formatFloat reading.price}}
