@@ -30,9 +30,9 @@ const renderSummary = (readings) => {
       minOdo = reading.odometer_reading
     }
   })
-  const milesDriven = maxOdo - minOdo
-  const milesPerGallon = milesDriven / fuelSum
-  const pricePerGallon = priceSum / fuelSum
+  const milesDriven = maxOdo - minOdo // This should always be an integer.
+  const milesPerGallon = (milesDriven / fuelSum).toFixed(1)
+  const pricePerGallon = (priceSum / fuelSum).toFixed(2)
 
   const textToRender = `<h2>Miles driven: ${milesDriven}   Total fuel: ${fuelSum}   MPG: ${milesPerGallon}   PPG: ${pricePerGallon}</h2>`
   $(config.summaryId).html(textToRender)
