@@ -22,11 +22,15 @@ aside {
   // height: 100vh;
   // position: fixed;
   // width: 20%;
-  min-height: 4 * $font-size;
+  min-height: 5 * $font-size;
 }
 
 hr {
   border-width: 4px;
+}
+
+.user-display {
+  color: $parakeet-yellow;
 }
 
 .sum-wrapper {

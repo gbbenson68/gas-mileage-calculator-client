@@ -43,6 +43,7 @@ const onSignInSuccess = responseData => {
   util.hide(config.newEntryBackButtonId)
   util.hide(config.hideEntriesButtonId)
   util.show('hr')
+  $(config.userDisplay).text(`You are ${store.user.email}, in case you forgot.`)
 
   // Auto-load summary information
   calcEvents.onIndex()
@@ -98,6 +99,7 @@ const onSignOutSuccess = responseData => {
   $(config.contentId).html('')
   $(config.summaryId).html('')
   store.allReadings = {}
+  $(config.userDisplay).text('')
 }
 
 const onSignOutFailure = responseData => {
