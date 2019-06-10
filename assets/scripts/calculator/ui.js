@@ -30,8 +30,15 @@ const renderSummary = (readings) => {
     }
   })
   const milesDriven = maxOdo - minOdo // This should always be an integer.
-  const milesPerGallon = (milesDriven / fuelSum).toFixed(1)
-  const pricePerGallon = (priceSum / fuelSum).toFixed(2)
+  let milesPerGallon = 0
+  let pricePerGallon = 0
+  if (fuelSum !== 0) {
+    milesPerGallon = (milesDriven / fuelSum).toFixed(1)
+    pricePerGallon = (priceSum / fuelSum).toFixed(2)
+  } else {
+    milesPerGallon = 0.0
+    pricePerGallon = 0.00
+  }
 
   let textToRender = '<div class=\'sum-wrapper\'>'
   textToRender += `<div class='summary-detail'>Summary:</div>`
@@ -60,6 +67,7 @@ const onIndexSuccess = responseData => {
 
 const onIndexFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onIndexFailure()`, 'Oops! Could not retrieve data. Please try again.', false, responseData)
+  util.logObject(responseData)
 }
 
 /*
@@ -68,11 +76,16 @@ const onIndexFailure = responseData => {
 const onCreateSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onCreateSuccess()`, 'Create success!', true, responseData)
   util.logObject(responseData)
+  util.resetForm()
 }
 
 const onCreateFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onCreateFailure()`, 'Create failed!', false, responseData)
   util.logObject(responseData)
+  util.resetForm()
+  util.hide(config.newEntryId)
+  util.hide(config.newEntryBackButtonId)
+  util.show(config.newEntryButtonId)
 }
 
 /*

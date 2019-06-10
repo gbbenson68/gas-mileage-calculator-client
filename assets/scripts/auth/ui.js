@@ -39,6 +39,7 @@ const onSignInSuccess = responseData => {
   util.show(config.changePWButtonId)
   util.show(config.signOutButtonId)
   util.show(config.calcButtonClass)
+  util.hide(config.newEntryBackButtonId)
 }
 
 const onSignInFailure = responseData => {
