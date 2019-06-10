@@ -15,14 +15,16 @@ const newEntryButtonId = '#new-entry-button'
 const newEntryBackButtonId = '#new-entry-back-button'
 const loadEntriesButtonId = '#load-entries-button'
 const hideEntriesButtonId = '#hide-entries-button'
-const updateEntryId = '#update-entry'
-const updateEntryButtonId = '#update-entry-button'
 const deleteEntryButtonId = '#delete-entry-button'
 
 const successFailMessageId = '#user-message'
 const formClassForReset = '.form-reset'
 const authButtonClass = '.auth-button'
 const calcButtonClass = '.calculator-button'
+const updateEntryClass = '.update-entry'
+const updateEntryButtonClass = '.update-entry-button'
+const updateEntryBackButtonClass = '.update-entry-back-button'
+const deleteEntryButtonClass = '.delete-entry-button'
 const contentId = '#content'
 const summaryId = '#summary'
 const hiddenClass = 'hidden' // NOTE: Do not use a leading '.' here!!
@@ -63,13 +65,15 @@ module.exports = {
   newEntryBackButtonId,
   loadEntriesButtonId,
   hideEntriesButtonId,
-  updateEntryId,
-  updateEntryButtonId,
   deleteEntryButtonId,
   successFailMessageId,
   formClassForReset,
   authButtonClass,
   calcButtonClass,
+  updateEntryClass,
+  updateEntryButtonClass,
+  updateEntryBackButtonClass,
+  deleteEntryButtonClass,
   contentId,
   summaryId,
   messageDelay,

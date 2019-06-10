@@ -68,11 +68,9 @@ const onUpdateEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onUpdateEntry()`)
   util.logObject(event.target)
-
-  const id = $(event.target).data('id')
-  util.logMessage(`${pkgName}.onDeleteEntry()`, `data-id = ${id}`)
+  const formData = getFormFields(event.target)
   // TODO - Do not update if input fields are empty!
-  api.updateEntry(id)
+  api.updateEntry(formData)
     .then(function (data) {
       onLoadEntries(event)
     })
@@ -114,14 +112,36 @@ const hideNewEntryForm = () => {
   util.show(config.newEntryButtonId)
 }
 
+/*
+** showUpdateEntryForm()
+*/
+const showUpdateEntryForm = (event) => {
+  const id = $(event.target).data('id')
+  util.hide(`.data-id-${id}${config.updateEntryButtonClass}`)
+  util.show(`.data-id-${id}${config.updateEntryClass}`)
+  util.show(`.data-id-${id}${config.updateEntryBackButtonClass}`)
+}
+
+/*
+** hideUpdateEntryForm()
+*/
+const hideUpdateEntryForm = (event) => {
+  const id = $(event.target).data('id')
+  util.hide(`.data-id-${id}${config.updateEntryClass}`)
+  util.hide(`.data-id-${id}${config.updateEntryBackButtonClass}`)
+  util.show(`.data-id-${id}${config.updateEntryButtonClass}`)
+}
+
 const addHandlers = () => {
   $(config.newEntryButtonId).on('click', showNewEntryForm)
   $(config.newEntryBackButtonId).on('click', hideNewEntryForm)
   $(config.newEntryId).on('submit', onNewEntry)
   $(config.loadEntriesButtonId).on('click', onLoadEntries)
   $(config.hideEntriesButtonId).on('click', onHideEntries)
-  $(config.contentId).on('click', '.update-reading', onUpdateEntry)
-  $(config.contentId).on('click', '.delete-reading', onDeleteEntry)
+  $(config.contentId).on('click', config.updateEntryButtonClass, showUpdateEntryForm)
+  $(config.contentId).on('click', config.updateEntryBackButtonClass, hideUpdateEntryForm)
+  $(config.contentId).on('submit', config.updateEntryClass, onUpdateEntry)
+  $(config.contentId).on('click', config.deleteEntryButtonClass, onDeleteEntry)
 }
 
 module.exports = {
