@@ -14,6 +14,7 @@ const newEntryId = '#new-entry'
 const newEntryButtonId = '#new-entry-button'
 const newEntryBackButtonId = '#new-entry-back-button'
 const loadEntriesButtonId = '#load-entries-button'
+const hideEntriesButtonId = '#hide-entries-button'
 const updateEntryId = '#update-entry'
 const updateEntryButtonId = '#update-entry-button'
 const deleteEntryButtonId = '#delete-entry-button'
@@ -61,6 +62,7 @@ module.exports = {
   newEntryButtonId,
   newEntryBackButtonId,
   loadEntriesButtonId,
+  hideEntriesButtonId,
   updateEntryId,
   updateEntryButtonId,
   deleteEntryButtonId,
