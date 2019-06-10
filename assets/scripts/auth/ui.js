@@ -42,6 +42,7 @@ const onSignInSuccess = responseData => {
   util.show(config.calcButtonClass)
   util.hide(config.newEntryBackButtonId)
   util.hide(config.hideEntriesButtonId)
+  util.show('hr')
 
   // Auto-load summary information
   calcEvents.onIndex()
@@ -91,10 +92,12 @@ const onSignOutSuccess = responseData => {
   util.hide(config.calcButtonClass)
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
+  util.hide('hr')
 
   // Remove content upon sign-out
   $(config.contentId).html('')
   $(config.summaryId).html('')
+  store.allReadings = {}
 }
 
 const onSignOutFailure = responseData => {

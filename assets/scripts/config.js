@@ -17,6 +17,7 @@ const loadEntriesButtonId = '#load-entries-button'
 const hideEntriesButtonId = '#hide-entries-button'
 const deleteEntryButtonId = '#delete-entry-button'
 
+const userDisplay = '#user-display'
 const successFailMessageId = '#user-message'
 const formClassForReset = '.form-reset'
 const authButtonClass = '.auth-button'
@@ -66,6 +67,7 @@ module.exports = {
   loadEntriesButtonId,
   hideEntriesButtonId,
   deleteEntryButtonId,
+  userDisplay,
   successFailMessageId,
   formClassForReset,
   authButtonClass,

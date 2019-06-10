@@ -2,6 +2,7 @@
 const pkgName = 'calc.ui'
 
 const config = require('../config')
+const store = require('../store')
 const util = require('../util')
 const listReadingsTemplate = require('../templates/readings_listing.handlebars')
 
@@ -56,6 +57,7 @@ const renderSummary = (readings) => {
 const onIndexSuccessSilent = responseData => {
   util.logMessage(`${pkgName}.onIndexSuccessSilent()`)
   renderSummary(responseData.readings)
+  store.allReadings = responseData.readings
 }
 
 const onIndexFailureSilent = responseData => {
