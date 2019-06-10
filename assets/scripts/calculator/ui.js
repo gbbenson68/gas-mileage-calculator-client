@@ -2,7 +2,6 @@
 const pkgName = 'calc.ui'
 
 const config = require('../config')
-const store = require('../store')
 const util = require('../util')
 const listReadingsTemplate = require('../templates/readings_listing.handlebars')
 
@@ -34,7 +33,13 @@ const renderSummary = (readings) => {
   const milesPerGallon = (milesDriven / fuelSum).toFixed(1)
   const pricePerGallon = (priceSum / fuelSum).toFixed(2)
 
-  const textToRender = `<h2>Miles driven: ${milesDriven}   Total fuel: ${fuelSum}   MPG: ${milesPerGallon}   PPG: ${pricePerGallon}</h2>`
+  let textToRender = '<div class=\'sum-wrapper\'>'
+  textToRender += `<div class='summary-detail'>Summary:</div>`
+  textToRender += `<div class='summary-detail'>Distance driven: ${milesDriven} mi</div>`
+  textToRender += `<div class='summary-detail'>Total Fuel: ${fuelSum} gal</div>`
+  textToRender += `<div class='summary-detail'>MPG: ${milesPerGallon}</div>`
+  textToRender += `<div class='summary-detail'>PPG: ${pricePerGallon}</div>`
+  textToRender += '</div>'
   $(config.summaryId).html(textToRender)
 }
 
