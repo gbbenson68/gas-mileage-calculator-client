@@ -54,8 +54,13 @@ const renderSummary = (readings) => {
 ** ***** Index functions *****
 */
 const onIndexSuccessSilent = responseData => {
-  util.displaySuccessFail(`${pkgName}.onIndexSuccessSilent()`, '', true, responseData)
+  util.logMessage(`${pkgName}.onIndexSuccessSilent()`)
   renderSummary(responseData.readings)
+}
+
+const onIndexFailureSilent = responseData => {
+  util.displaySuccessFail(`${pkgName}.onIndexSuccessSilent()`, 'Whoa... Couldn\'t get summary data. Please try the \'Load Entries\' button.', true, responseData)
+  util.timeoutMessage()
 }
 
 const onIndexSuccess = responseData => {
@@ -70,6 +75,7 @@ const onIndexSuccess = responseData => {
 const onIndexFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onIndexFailure()`, 'Oops! Could not retrieve data. Please try again.', false, responseData)
   util.logObject(responseData)
+  util.timeoutMessage()
 }
 
 /*
@@ -80,6 +86,7 @@ const onCreateFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onCreateFailure()`, 'Create failed!', false, responseData)
   util.logObject(responseData)
   util.resetForm()
+  util.timeoutMessage()
   util.hide(config.newEntryId)
   util.hide(config.newEntryBackButtonId)
   util.show(config.newEntryButtonId)
@@ -91,6 +98,7 @@ const onCreateFailure = responseData => {
 // NOTE: There is no update success function here - we just reload the details
 const onUpdateFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onUpdateFailure()`, 'Update failed. Please try again.', false, responseData)
+  util.timeoutMessage()
 }
 
 /*
@@ -99,11 +107,13 @@ const onUpdateFailure = responseData => {
 // NOTE: There is no update success function here - we just reload the details
 const onDeleteFailure = responseData => {
   util.displaySuccessFail(`${pkgName}.onUpdateFailure()`, 'Delete failed. Please try again.', false, responseData)
+  util.timeoutMessage()
 }
 
 module.exports = {
   onIndexSuccess,
   onIndexSuccessSilent,
+  onIndexFailureSilent,
   onIndexFailure,
   onCreateFailure,
   onUpdateFailure,

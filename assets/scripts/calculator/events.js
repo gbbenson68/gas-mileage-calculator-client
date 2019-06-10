@@ -39,7 +39,7 @@ const onIndex = (event) => {
   util.logMessage(`${pkgName}.onIndex()`)
   api.index()
     .then(ui.onIndexSuccessSilent)
-    .catch(ui.onIndexFailure)
+    .catch(ui.onIndexFailureSilent)
 }
 
 /*
@@ -68,8 +68,9 @@ const onUpdateEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onUpdateEntry()`)
   const formData = getFormFields(event.target)
-  util.logObject(formData)
   const id = $(event.target).data('id')
+  util.logMessage(`${pkgName}.onUpdateEntry()`, `data-id = ${id}`)
+  util.logObject(formData)
   // TODO - Do not update if input fields are empty!
   api.updateEntry(formData, id)
     .then(function (data) {
@@ -85,7 +86,6 @@ const onDeleteEntry = (event) => {
   event.preventDefault()
   util.logMessage(`${pkgName}.onDeleteEntry()`)
   util.logObject(event.target)
-
   const id = $(event.target).data('id')
   util.logMessage(`${pkgName}.onDeleteEntry()`, `data-id = ${id}`)
   api.deleteEntry(id)
