@@ -4,6 +4,7 @@ const pkgName = 'ui'
 const config = require('../config')
 const store = require('../store')
 const util = require('../util')
+const calcEvents = require('../calculator/events')
 
 /*
 ** ***** Sign Up functions *****
@@ -40,6 +41,9 @@ const onSignInSuccess = responseData => {
   util.show(config.signOutButtonId)
   util.show(config.calcButtonClass)
   util.hide(config.newEntryBackButtonId)
+
+  // Auto-load summary information
+  calcEvents.onIndex()
 }
 
 const onSignInFailure = responseData => {
@@ -86,6 +90,8 @@ const onSignOutSuccess = responseData => {
   util.hide(config.calcButtonClass)
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
+
+  // Remove content upon sign-out
   $(config.contentId).html('')
   $(config.summaryId).html('')
 }

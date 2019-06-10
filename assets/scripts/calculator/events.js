@@ -24,7 +24,10 @@ const onLoadEntries = (event) => {
 **    separate API call for summary load only
 */
 const onIndex = (event) => {
-  event.preventDefault()
+  // Need this to prevent error on load from sign-in
+  if (event !== undefined) {
+    event.preventDefault()
+  }
   util.logMessage(`${pkgName}.onIndex()`)
   api.index()
     .then(ui.onIndexSuccessSilent)
