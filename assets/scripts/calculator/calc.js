@@ -78,13 +78,12 @@ const getSummaryInfo = (readings) => {
     $(config.specialMessageId).html('PLEASE NOTE: Summary calculations only begin with more than one entry!')
     summaryObj = {
       milesDriven: 0,
-      fuelSum: 0,
+      totalFuel: (0).toFixed(1),
       milesPerGallon: (0).toFixed(1),
       pricePerGallon: (0).toFixed(2)
     }
     return summaryObj
   }
-  console.log('Total fuel = ' + totalFuel)
 
   /*
   ** NOTE: The MPG and PPG calculations should NOT include the current fuel
@@ -101,7 +100,6 @@ const getSummaryInfo = (readings) => {
       maxOdo = readings[i].odometer_reading
     }
   }
-  console.log('Total fuel = ' + totalFuel)
 
   let minOdo = maxOdo // To make sure we get minimum.
   readings.forEach((reading) => {
@@ -111,6 +109,7 @@ const getSummaryInfo = (readings) => {
   })
 
   milesDriven = maxOdo - minOdo // This should always be an integer.
+  totalFuel = totalFuel.toFixed(1)
   if (fuelMPGsum !== 0) {
     milesPerGallon = (milesDriven / fuelMPGsum).toFixed(1)
     pricePerGallon = (pricePPGsum / fuelMPGsum).toFixed(2)
@@ -119,7 +118,6 @@ const getSummaryInfo = (readings) => {
     pricePerGallon = (0).toFixed(2)
   }
 
-  console.log('Total fuel = ' + totalFuel)
   summaryObj = {
     milesDriven: milesDriven,
     totalFuel: totalFuel,
