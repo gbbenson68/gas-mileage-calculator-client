@@ -78,6 +78,7 @@ const onUpdateEntry = (event) => {
   // TODO - Do not update if input fields are empty!
   api.updateEntry(formData, id)
     .then(function (data) {
+      util.resetForm()
       onLoadEntries(event)
     })
     .catch(ui.onUpdateFailure)
