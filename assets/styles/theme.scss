@@ -16,13 +16,7 @@ header {
 
 aside {
   background-color: $navy-blue;
-  // Comment these out until I figure out how to do what I want.
-  // display: flex;
-  // flex-direction: column;
-  // height: 100vh;
-  // position: fixed;
-  // width: 20%;
-  min-height: 5 * $font-size;
+  min-height: 100vh;
 }
 
 hr {

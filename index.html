@@ -16,24 +16,33 @@
       <header>
         Gas Mileage Calculator
       </header>
-      <div class='main-wrapper'>
-        <aside>
-          <div id='user-display' class='user-display'></div>
-          <form id='sign-in' class='hidden'>
-            <fieldset>
-              <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-              <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-              <input type="submit" value="Sign In"/>
-            </fieldset>
-          </form>
-          <form id='sign-up' class='hidden'>
-            <fieldset>
-              <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-              <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-              <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
-              <input type="submit" value="Sign Up"/>
-            </fieldset>
-          </form>
+
+      <!-- MAIN CONTENT STARTS HERE!!! -->
+      <div class='container-fluid'>
+        <div class='row main-content'>
+
+          <aside class='col-md-3'>
+            <!-- SIGN-IN FORM -->
+            <div id='user-display' class='user-display'></div>
+            <form id='sign-in' class='hidden'>
+              <fieldset>
+                <input type="email" name="credentials[email]" placeholder="Enter email here" required>
+                <input type="password" name="credentials[password]" placeholder="Enter password here" required>
+                <input type="submit" value="Sign In"/>
+              </fieldset>
+            </form>
+
+            <!-- SIGN-UP FORM -->
+            <form id='sign-up' class='hidden'>
+              <fieldset>
+                <input type="email" name="credentials[email]" placeholder="Enter email here" required>
+                <input type="password" name="credentials[password]" placeholder="Enter password here" required>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
+                <input type="submit" value="Sign Up"/>
+              </fieldset>
+            </form>
+
+            <!-- CHANGE PASSWORD FORM -->
             <form id='change-pw' class='hidden'>
               <fieldset>
                 <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
@@ -41,6 +50,8 @@
                 <input type="submit" value="Change Password"/>
               </fieldset>
             </form>
+
+            <!-- BUTTONS THAT CONTROL FUNCTIONALITY RE: VIEW/HIDE -->
             <button id='sign-up-button' class='auth-button'>Sign Up</button>
             <button id='sign-in-button' class='auth-button'>Sign In</button>
             <button id='change-pw-button' class='auth-button hidden'>Change Password</button>
@@ -48,8 +59,12 @@
             <button id='back-button' class='auth-button hidden'>Back</button>
             <button id='change-pw-back-button' class='auth-button hidden'>Back</button>
             <div id='user-message' class='user-message'></div>
-          </aside>
-          <main>
+          </aside> <!--div class='col-md-3' -->
+
+          <!-- BEGIN CONTENT CONTAINER -->
+          <main class='col-md-9'>
+
+            <!-- NEW ENTRY FORM -->
             <form id='new-entry' class='hidden'>
               <fieldset>
                 <legend>New Entry</legend>
@@ -84,10 +99,14 @@
                 <input type='submit' value='Enter'/>
               </fieldset>
             </form>
+
+            <!-- BUTTONS TO CONTROL SOME FUNCTIONALITY -->
             <button id='new-entry-button' class='calculator-button hidden'>New Entry</button>
             <button id='new-entry-back-button' class='calculator-button hidden'>Back</button>
             <button id='load-entries-button' class='calculator-button hidden'>Load Entries</button>
             <button id='hide-entries-button' class='calculator-button hidden'>Hide Entries</button>
+
+            <!-- START SUMMARY SECTION -->
             <hr class='hidden'>
             <div id='summary-wrapper' class='summary-wrapper'>
               <div id='special-message' class='special-message'></div>
@@ -95,8 +114,14 @@
             </div>
             <hr class='hidden'>
             <div id='content' class='content'></div>
-          </main>
+
+          </main>  <!-- div class='col-md-9' -->
+          <!-- END MAIN SECTION -->
+
         </div>
+      </div>
+
+
       <footer class='footer'>
         © 2019 Guy B. Benson
       </footer>
