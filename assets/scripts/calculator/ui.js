@@ -15,13 +15,11 @@ const listReadingsTemplate = require('../templates/readings_listing.handlebars')
 */
 const renderSummary = (readings) => {
   const summaryObj = calc.getSummaryInfo(readings)
-  let textToRender = '<div class=\'sum-wrapper\'>'
-  textToRender += `<div class='summary-detail'>Summary:</div>`
+  let textToRender = `<div class='summary-detail'>Summary:</div>`
   textToRender += `<div class='summary-detail'>Distance driven: ${summaryObj.milesDriven} mi</div>`
   textToRender += `<div class='summary-detail'>Total Fuel: ${summaryObj.fuelSum} gal</div>`
   textToRender += `<div class='summary-detail'>MPG: ${summaryObj.milesPerGallon}</div>`
   textToRender += `<div class='summary-detail'>PPG: ${summaryObj.pricePerGallon}</div>`
-  textToRender += '</div>'
   $(config.summaryId).html(textToRender)
 }
 

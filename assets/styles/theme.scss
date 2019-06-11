@@ -33,14 +33,23 @@ hr {
   color: $parakeet-yellow;
 }
 
-.sum-wrapper {
+.summary-wrapper {
   color: $navy-blue;
-  display: flex;
   font-size: 2 * $font-size;
   font-weight: 600;
+  text-shadow: $parakeet-yellow 1px 1px;
+}
+
+.summary-detail {
+  display: flex;
   justify-content: space-between;
   margin: .5 * $font-size $font-size .5 * $font-size .5 * $font-size;
-  text-shadow: $parakeet-yellow 1px 1px;
+}
+
+.special-message {
+  font-size: 1.5 * $font-size;
+  font-style: italic;
+  margin-left: $font-size;
 }
 
 .success,
