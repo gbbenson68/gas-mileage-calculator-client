@@ -18,6 +18,8 @@ header {
 
 aside {
   background-color: $navy-blue;
+  border-right: solid $parchment;
+  border-width: thin;
   min-height: 85vh;
 }
 
@@ -62,6 +64,8 @@ footer {
   color: $parchment;
   font-size: 1.2 * $font-size;
 }
+
+// BUTTONS!! Thanks: https://www.bestcssbuttongenerator.com/
 
 .hidden {
   display: none;

@@ -26,38 +26,38 @@
             <div id='user-display' class='user-display'></div>
             <form id='sign-in' class='hidden'>
               <fieldset>
-                <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-                <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-                <input type="submit" value="Sign In"/>
+                <input type="email" name="credentials[email]" placeholder="Enter email here" class='my-form-field' required>
+                <input type="password" name="credentials[password]" placeholder="Enter password here" class='my-form-field' required>
+                <input type="submit" class='my-button' value="Sign In"/>
               </fieldset>
             </form>
 
             <!-- SIGN-UP FORM -->
             <form id='sign-up' class='hidden'>
               <fieldset>
-                <input type="email" name="credentials[email]" placeholder="Enter email here" required>
-                <input type="password" name="credentials[password]" placeholder="Enter password here" required>
-                <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" required>
-                <input type="submit" value="Sign Up"/>
+                <input type="email" name="credentials[email]" placeholder="Enter email here" class='my-form-field' required>
+                <input type="password" name="credentials[password]" placeholder="Enter password here" class='my-form-field' required>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" class='my-form-field' required>
+                <input type="submit" class='my-button' value="Sign Up"/>
               </fieldset>
             </form>
 
             <!-- CHANGE PASSWORD FORM -->
             <form id='change-pw' class='hidden'>
               <fieldset>
-                <input type="password" name="passwords[old]" placeholder="Enter old password here" required>
-                <input type="password" name="passwords[new]" placeholder="Enter new password here" required>
-                <input type="submit" value="Change Password"/>
+                <input type="password" name="passwords[old]" placeholder="Enter old password here" class='my-form-field' required>
+                <input type="password" name="passwords[new]" placeholder="Enter new password here" class='my-form-field' required>
+                <input type="submit" class='my-button' value="Change Password"/>
               </fieldset>
             </form>
 
             <!-- BUTTONS THAT CONTROL FUNCTIONALITY RE: VIEW/HIDE -->
-            <button id='sign-up-button' class='auth-button'>Sign Up</button>
-            <button id='sign-in-button' class='auth-button'>Sign In</button>
-            <button id='change-pw-button' class='auth-button hidden'>Change Password</button>
-            <button id='sign-out-button' class='auth-button hidden'>Sign Out</button>
-            <button id='back-button' class='auth-button hidden'>Back</button>
-            <button id='change-pw-back-button' class='auth-button hidden'>Back</button>
+            <button id='sign-up-button' class='auth-button my-button'>Sign Up</button>
+            <button id='sign-in-button' class='auth-button my-button'>Sign In</button>
+            <button id='change-pw-button' class='auth-button hidden my-button'>Change Password</button>
+            <button id='sign-out-button' class='auth-button hidden my-button'>Sign Out</button>
+            <button id='back-button' class='auth-button hidden my-button'>Back</button>
+            <button id='change-pw-back-button' class='auth-button hidden my-button'>Back</button>
             <div id='user-message' class='user-message'></div>
           </aside> <!--div class='col-md-2' -->
 
@@ -96,15 +96,15 @@
                 </div>
                 -->
                 <input type='text' name='reading[comment]' placeholder='Comment'/>
-                <input type='submit' value='Enter'/>
+                <input type='submit' class='my-button' value='Enter'/>
               </fieldset>
             </form>
 
             <!-- BUTTONS TO CONTROL SOME FUNCTIONALITY -->
-            <button id='new-entry-button' class='calculator-button hidden'>New Entry</button>
-            <button id='new-entry-back-button' class='calculator-button hidden'>Back</button>
-            <button id='load-entries-button' class='calculator-button hidden'>Load Entries</button>
-            <button id='hide-entries-button' class='calculator-button hidden'>Hide Entries</button>
+            <button id='new-entry-button' class='calculator-button hidden my-button'>New Entry</button>
+            <button id='new-entry-back-button' class='calculator-button hidden my-button'>Back</button>
+            <button id='load-entries-button' class='calculator-button hidden my-button'>Show Entries</button>
+            <button id='hide-entries-button' class='calculator-button hidden my-button'>Hide Entries</button>
 
             <!-- START SUMMARY SECTION -->
             <hr class='hidden'>
