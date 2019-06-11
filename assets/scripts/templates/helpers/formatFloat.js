@@ -1,7 +1,11 @@
 'use strict'
 
 const formatFloat = (number) => {
-  return number.toFixed(2)
+  if (typeof number !== 'number') {
+    return (0).toFixed(2)
+  } else {
+    return number.toFixed(2)
+  }
 }
 
 module.exports = formatFloat
