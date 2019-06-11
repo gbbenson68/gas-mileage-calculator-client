@@ -9,6 +9,8 @@ body {
 
 header {
   background: $barbara-purple;
+  border-bottom: solid $black;
+  border-width: thin;
   color: $parchment;
   font-size: 3 * $font-size;
   font-style: italic;
@@ -16,11 +18,20 @@ header {
 
 aside {
   background-color: $navy-blue;
-  min-height: 100vh;
+  min-height: 85vh;
 }
 
 hr {
   border-width: 4px;
+}
+
+footer {
+  background: $parchment;
+  border-bottom: solid $black;
+  border-top: solid $black;
+  border-width: thin;
+  font-style: italic;
+  //max-height: 15vh;
 }
 
 .user-display {
