@@ -56,7 +56,6 @@ const todayDate = () => {
   } else {
     month = (now.getMonth() + 1).toString()
   }
-
   const day = now.getDate().toString()
 
   return year + '-' + month + '-' + day
