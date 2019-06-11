@@ -16,11 +16,11 @@
         <legend>Update Entry</legend>
         {{!-- NOTE: Some of these entries will need to be updated if we end up using radio buttons!! --}}
         <input type='date' name='reading[transaction_date]' value="{{reading.transaction_date}}" readonly required>
-        <input type='text' name='reading[odometer_reading]' value="{{reading.odometer_reading}}" required>
+        <input type='number' min='0' name='reading[odometer_reading]' value="{{reading.odometer_reading}}" required>
         <input type='text' name='reading[odometer_units]' value='mi' class='hidden' required>
-        <input type='text' name='reading[fuel_amount]' value="{{reading.fuel_amount}}" required>
+        <input type='number' min='0' step='0.1' name='reading[fuel_amount]' value="{{reading.fuel_amount}}" required>
         <input type='text' name='reading[fuel_units]' value='gal' class='hidden' required>
-        <input type='text' name='reading[price]' value="{{formatFloat reading.price}}"/>
+        <input type='number' min='0' step='0.01' name='reading[price]' value="{{formatFloat reading.price}}"/>
         <input type='text' name='reading[price_units]' value='US Dollars' class='hidden'/>
         <input type='text' name='reading[comment]' value="{{reading.comment}}"/>
         <input type='submit' value='Enter'/>
