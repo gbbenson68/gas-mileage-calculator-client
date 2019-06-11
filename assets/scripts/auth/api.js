@@ -1,5 +1,5 @@
 'use strict'
-const pkgName = 'api'
+const pkgName = 'auth.api'
 
 const config = require('../config')
 const store = require('../store')

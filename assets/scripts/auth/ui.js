@@ -1,5 +1,5 @@
 'use strict'
-const pkgName = 'ui'
+const pkgName = 'auth.ui'
 
 const config = require('../config')
 const store = require('../store')
