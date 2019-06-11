@@ -43,7 +43,7 @@ const onSignInSuccess = responseData => {
   util.hide(config.newEntryBackButtonId)
   util.hide(config.hideEntriesButtonId)
   util.show('hr')
-  $(config.userDisplay).text(`You are ${store.user.email}, in case you forgot.`)
+  $(config.userDisplay).text(`You are logged in as ${store.user.email}, in case you forgot.`)
 
   // Auto-load summary information
   calcEvents.onIndex()

@@ -4,6 +4,7 @@ const pkgName = 'calc.events'
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const config = require('../config')
+const store = require('../store')
 const ui = require('./ui')
 const util = require('../util')
 
@@ -43,6 +44,54 @@ const onIndex = (event) => {
 }
 
 /*
+** todayDate()
+*/
+const todayDate = () => {
+  const now = new Date()
+  const year = now.getFullYear().toString()
+
+  let month = ''
+  if (now.getMonth() + 1 < 10) {
+    month = '0' + (now.getMonth() + 1).toString()
+  } else {
+    month = (now.getMonth() + 1).toString()
+  }
+
+  const day = now.getDate().toString()
+
+  return year + '-' + month + '-' + day
+}
+
+/*
+** paramsAreValid()
+*/
+const paramsAreValid = (formData) => {
+  const newTransDate = formData.reading.transaction_date
+  const newOdoReading = formData.reading.odometer_reading
+  const lastTransDate = store.allReadings[store.allReadings.length - 1].transaction_date
+  const lastOdoReading = store.allReadings[store.allReadings.length - 1].odometer_reading
+  const today = todayDate()
+
+  if (newTransDate > today) {
+    util.displaySuccessFail(`${pkgName}.paramsAreValid`, 'You cannot enter a date later than today, please try again!', false, '')
+    util.timeoutMessage()
+    return false
+  }
+
+  if (newTransDate < lastTransDate && newOdoReading >= lastOdoReading) {
+    util.displaySuccessFail(`${pkgName}.paramsAreValid`, 'Inconsistent data, please check your entry and try again!', false, '')
+    util.timeoutMessage()
+    return false
+  } else if (newTransDate >= lastTransDate && newOdoReading < lastOdoReading) {
+    util.displaySuccessFail(`${pkgName}.paramsAreValid`, 'Inconsistent data, please check your entry and try again!', false, '')
+    util.timeoutMessage()
+    return false
+  } else {
+    return true
+  }
+}
+
+/*
 ** onNewEntry()
 */
 const onNewEntry = (event) => {
@@ -50,15 +99,18 @@ const onNewEntry = (event) => {
   util.logMessage(`${pkgName}.onNewEntry()`)
   const formData = getFormFields(event.target)
   util.logObject(formData)
-  api.createEntry(formData)
-    .then(function (data) {
-      util.resetForm()
-      util.hide(config.newEntryId)
-      util.hide(config.newEntryBackButtonId)
-      util.show(config.newEntryButtonId)
-      onLoadEntries(event)
-    })
-    .catch(ui.onCreateFailure)
+
+  if (paramsAreValid(formData)) {
+    api.createEntry(formData)
+      .then(function (data) {
+        util.resetForm()
+        util.hide(config.newEntryId)
+        util.hide(config.newEntryBackButtonId)
+        util.show(config.newEntryButtonId)
+        onLoadEntries(event)
+      })
+      .catch(ui.onCreateFailure)
+  }
 }
 
 /*

@@ -58,6 +58,8 @@ const onIndexSuccessSilent = responseData => {
   util.logMessage(`${pkgName}.onIndexSuccessSilent()`)
   renderSummary(responseData.readings)
   store.allReadings = responseData.readings
+  console.log('All readings =')
+  console.log(store.allReadings)
 }
 
 const onIndexFailureSilent = responseData => {
