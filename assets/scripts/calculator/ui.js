@@ -39,7 +39,13 @@ const onIndexFailureSilent = responseData => {
 
 const onIndexSuccess = responseData => {
   util.displaySuccessFail(`${pkgName}.onIndexSuccess()`, '', true, responseData)
-  const textToRender = listReadingsTemplate({readings: responseData.readings})
+
+  let textToRender = ''
+  if (responseData.readings === undefined || responseData.readings.length === 0) {
+    textToRender = "<section data-id='0' class='reading-entry'><h4>There are no entries to display yet.</h4></section>"
+  } else {
+    textToRender = listReadingsTemplate({readings: responseData.readings})
+  }
   $(config.contentId).html(textToRender)
   onIndexSuccessSilent(responseData)
   util.hide(config.loadEntriesButtonId)

@@ -18,7 +18,7 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
-  util.displaySuccessFail(`${pkgName}.onSignUpFailure()`, 'Signed up failed. Please try again.', false, responseData)
+  util.displaySuccessFail(`${pkgName}.onSignUpFailure()`, 'Sign-up failed. Please try again.', false, responseData)
   util.resetForm()
   util.timeoutMessage()
   util.hide(config.authButtonClass)
@@ -51,7 +51,7 @@ const onSignInSuccess = responseData => {
 }
 
 const onSignInFailure = responseData => {
-  util.displaySuccessFail(`${pkgName}.onSignInFailure()`, 'Signed in failed. Have you signed up yet?', false, responseData)
+  util.displaySuccessFail(`${pkgName}.onSignInFailure()`, 'Sign-in failed. Have you signed up yet?', false, responseData)
   util.resetForm()
   util.timeoutMessage()
   util.hide(config.authButtonClass)
@@ -110,7 +110,7 @@ const onSignOutSuccess = responseData => {
 }
 
 const onSignOutFailure = responseData => {
-  util.displaySuccessFail(`${pkgName}.onSignOutFailure()`, 'Sign out failed. Weird...', false, responseData)
+  util.displaySuccessFail(`${pkgName}.onSignOutFailure()`, 'Sign-out failed. Weird...', false, responseData)
   util.resetForm()
   util.timeoutMessage()
 }
