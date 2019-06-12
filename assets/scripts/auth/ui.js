@@ -94,6 +94,7 @@ const onSignOutSuccess = responseData => {
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
   util.hide('hr')
+  $(config.specialMessageId).html('')
 
   // Remove content upon sign-out
   $(config.contentId).html('')
