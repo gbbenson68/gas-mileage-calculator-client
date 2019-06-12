@@ -1,15 +1,17 @@
 {{#each readings as |reading|}}
   <section data-id="{{reading.id}}" class='reading-entry'>
     <h4>Date: {{reading.transaction_date}}</h4>
-    Odometer reading: {{reading.odometer_reading}}
-    Fuel amount: {{reading.fuel_amount}}
-    Price:
-      {{#if reading.price}}
-        {{formatFloat reading.price}}
-      {{else}}
-        {{formatFloat 0}}
-      {{/if}}
-    <h5>Comment: {{reading.comment}}</h5>
+    <div class='entry-detail-wrapper'>
+      <div class='entry-detail'>Odometer reading: {{reading.odometer_reading}}</div>
+      <div class='entry-detail'>Fuel amount: {{reading.fuel_amount}}</div>
+      <div class='entry-detail'>Price:
+        {{#if reading.price}}
+          {{formatFloat reading.price}}
+          {{else}}
+          {{formatFloat 0}}
+          {{/if}}</div>
+      </div>
+    <div class='entry-detail'>Comment: {{reading.comment}}</div>
     <form data-id="{{reading.id}}" class="data-id-{{reading.id}} update-entry hidden">
       <fieldset>
         <legend>Update Entry</legend>
