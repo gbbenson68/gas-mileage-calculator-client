@@ -111,10 +111,15 @@ p {
   margin-right: $font-size;
 }
 
-.success,
-.failure {
+.success {
   color: $parchment;
-  font-size: 1.2 * $font-size;
+  font-size: 1.9 * $font-size;
+}
+
+.failure {
+  color: $firetruck-red;
+  font-size: 1.9 * $font-size;
+  text-shadow: $parakeet-yellow 3px 3px;
 }
 
 .hidden {
