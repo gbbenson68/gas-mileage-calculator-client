@@ -27,6 +27,9 @@ const todayDate = () => {
 ** paramsAreValid()
 */
 const paramsAreValid = (formData) => {
+  if (store.allReadings === undefined || store.allReadings.length === 0) {
+    return true
+  }
   const newEntryTransDate = formData.reading.transaction_date
   const newEntryOdoReading = formData.reading.odometer_reading
   const lastTransDate = store.allReadings[store.allReadings.length - 1].transaction_date
