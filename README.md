@@ -44,6 +44,33 @@ User Stories
 
 Basic Directory Structure
 -------------------------
+```
+assets/images
+```
+```
+assets/scripts
+```
+```
+assets/scripts/auth
+```
+```
+assets/scripts/calculator
+```
+```
+assets/scripts/templates
+```
+```
+assets/scripts/templates/helpers
+```
+```
+assets/styles
+```
+```
+curl-scripts/auth
+```
+```
+curl-scripts/readings
+```
 
 Known Bugs and To-dos
 ---------------------
