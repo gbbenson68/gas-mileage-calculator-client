@@ -59,7 +59,6 @@ const onNewEntry = (event) => {
         util.hide(config.newEntryId)
         util.hide(config.newEntryBackButtonId)
         util.show(config.newEntryButtonId)
-        util.displaySuccessFail(`${pkgName}.onNewEntry`, 'Entry entered successfully.', true, '')
         onLoadEntries(event)
       })
       .catch(ui.onCreateFailure)
@@ -80,7 +79,6 @@ const onUpdateEntry = (event) => {
   api.updateEntry(formData, id)
     .then(function (data) {
       util.resetForm()
-      util.displaySuccessFail(`${pkgName}.onUpdateEntry`, 'Entry updated successfully.', true, '')
       onLoadEntries(event)
     })
     .catch(ui.onUpdateFailure)
