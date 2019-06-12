@@ -15,7 +15,7 @@ This is my second project here at General Assembly.
 ##### What It Does
 This application calculates a running average of the mileage for a given user. For every trip to the gas station, simply record the date, your odometer reading on that date, the amount of gas you purchased, and what you paid for it. Over the course of time, the MPG (miles per gallon) and PPG (price per gallon) should be a fairly accurate average of the mileage your vehicle gets on a regular basis.
 
-As it's a running total, you can add older entries, as well. If the data that you enter is correct, then older forgotten entries will only act to make your average MPG and PPG calculations more accurate.
+As it's a running total, you can add older entries, as well. If the data that you enter is correct, then those once forgotten entries will only act to make your average MPG and PPG calculations more accurate.
 
 ##### What To Expect
 * For calculations to begin, you need at least two entries. The reason for this is that, even after the first entry, there is no effective distance driven. (Did you drive 500 miles before the first entry or 5000 miles? How much gas did you actually purchase before the first entry?)

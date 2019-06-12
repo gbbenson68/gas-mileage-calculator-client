@@ -43,6 +43,7 @@ const onSignInSuccess = responseData => {
   util.hide(config.newEntryBackButtonId)
   util.hide(config.hideEntriesButtonId)
   util.show('hr')
+  util.hide(config.defaultContentClass)
   $(config.userDisplay).text(`You are logged in as ${store.user.email}, in case you forgot.`)
 
   // Auto-load summary information
@@ -99,6 +100,7 @@ const onSignOutSuccess = responseData => {
 
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
+  util.show(config.defaultContentClass)
 
   // Remove content upon sign-out
   $(config.contentId).html('')

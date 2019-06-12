@@ -38,6 +38,11 @@ footer {
   border-width: thin;
 }
 
+p {
+  font-size: 1.4 * $font-size;
+  text-decoration: underline;
+}
+
 .user-display {
   color: $parakeet-yellow;
 }

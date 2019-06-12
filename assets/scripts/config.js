@@ -22,6 +22,7 @@ const successFailMessageId = '#user-message'
 const summaryHeaderId = '#summary-header'
 const specialMessageId = '#special-message'
 const specialMessageClass = '.special-message'
+const defaultContentClass = '.default-content'
 const formClassForReset = '.form-reset'
 const authButtonClass = '.auth-button'
 const calcButtonClass = '.calculator-button'
@@ -75,6 +76,7 @@ module.exports = {
   summaryHeaderId,
   specialMessageId,
   specialMessageClass,
+  defaultContentClass,
   formClassForReset,
   authButtonClass,
   calcButtonClass,
