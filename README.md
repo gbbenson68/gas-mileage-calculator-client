@@ -22,6 +22,8 @@ As it's a running total, you can add older entries, as well. If the data that yo
 
 * The Total Fuel amount reflects what has been purchased _in total_, whereas the MPG and PPG calculations do _not_ take the fuel for the most recent entry into account, as there's no way of knowing how far you will drive on your _current_ tank of gas until you add yet another entry.
 
+* For any given new entry with a given date, the odometer reading is compared to the previous and next entries to ensure better data consistency. If for example, you have an entry on 3/1/2019 with 10000 miles and another entry on 4/1/2019 with 11000 miles, you cannot add an entry on 3/15/2019 with an odometer reading less than 10000 or greater than 11000.
+
 For notes about the Back End, please see the README [here](https://github.com/gbbenson68/gas-mileage-calculator-back-end).
 
 The client is deployed on GitHub Pages and can be found [here](https://gbbenson68.github.io/gas-mileage-calculator-client/).

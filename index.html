@@ -133,6 +133,10 @@
                 <li>The Total Fuel amount reflects what has been purchased in total, whereas the MPG and PPG calculations do not take
                     the fuel for the most recent entry into account, as there's no way of knowing how far you will drive on your current
                     tank of gas, until you add yet another entry, that is.</li>
+                <li>For any given new entry with a given date, the odometer reading is compared to the previous and next entries to
+                    ensure better data consistency. If for example, you have an entry on 3/1/2019 with 10000 miles and another entry on
+                    4/1/2019 with 11000 miles, you cannot add an entry on 3/15/2019 with an odometer reading less than 10000 or greater
+                    than 11000.</li>
               </ul>
             </div>
             <div id='content' class='content'></div>
