@@ -93,6 +93,7 @@ const backUp = () => {
   util.hide(config.signInId)
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
+  util.resetForm()
 }
 
 /*
@@ -112,6 +113,7 @@ const changePWBackUp = () => {
   util.hide(config.changePWId)
   util.show(config.changePWButtonId)
   util.show(config.signOutButtonId)
+  util.resetForm()
 }
 
 const addHandlers = () => {

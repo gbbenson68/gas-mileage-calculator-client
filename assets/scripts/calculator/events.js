@@ -116,6 +116,7 @@ const hideNewEntryForm = () => {
   util.hide(config.newEntryId)
   util.hide(config.newEntryBackButtonId)
   util.show(config.newEntryButtonId)
+  util.resetForm()
 }
 
 /*
@@ -136,6 +137,7 @@ const hideUpdateEntryForm = (event) => {
   util.hide(`.data-id-${id}${config.updateEntryClass}`)
   util.hide(`.data-id-${id}${config.updateEntryBackButtonClass}`)
   util.show(`.data-id-${id}${config.updateEntryButtonClass}`)
+  util.resetForm()
 }
 
 const addHandlers = () => {
