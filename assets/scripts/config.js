@@ -19,6 +19,7 @@ const deleteEntryButtonId = '#delete-entry-button'
 
 const userDisplay = '#user-display'
 const successFailMessageId = '#user-message'
+const summaryHeaderId = '#summary-header'
 const specialMessageId = '#special-message'
 const specialMessageClass = '.special-message'
 const formClassForReset = '.form-reset'
@@ -71,6 +72,7 @@ module.exports = {
   deleteEntryButtonId,
   userDisplay,
   successFailMessageId,
+  summaryHeaderId,
   specialMessageId,
   specialMessageClass,
   formClassForReset,

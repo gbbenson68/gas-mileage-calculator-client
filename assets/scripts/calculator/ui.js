@@ -14,10 +14,10 @@ const listReadingsTemplate = require('../templates/readings_listing.handlebars')
 **       loop over the data twice to determine max and min.
 */
 const renderSummary = (readings) => {
+  util.show(config.summaryHeaderId)
   const summaryObj = calc.getSummaryInfo(readings)
-  let textToRender = `<div class='summary-detail'>Summary:</div>`
-  textToRender += `<div class='summary-detail'>Distance driven: ${summaryObj.milesDriven} mi</div>`
-  textToRender += `<div class='summary-detail'>Total Fuel: ${summaryObj.totalFuel} gal</div>`
+  let textToRender = `<div class='summary-detail'>Distance driven: ${summaryObj.milesDriven} mi</div>`
+  textToRender += `<div class='summary-detail'>Total Fuel Qty: ${summaryObj.totalFuel} gal</div>`
   textToRender += `<div class='summary-detail'>MPG: ${summaryObj.milesPerGallon}</div>`
   textToRender += `<div class='summary-detail'>PPG: ${summaryObj.pricePerGallon}</div>`
   $(config.summaryId).html(textToRender)

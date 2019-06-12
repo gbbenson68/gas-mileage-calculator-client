@@ -78,7 +78,7 @@
                   <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
                 </div>
                 -->
-                <input type='number' min='0' step='0.1' name='reading[fuel_amount]' placeholder='Fuel Amount' class='my-form-field' required>
+                <input type='number' min='0' step='0.1' name='reading[fuel_amount]' placeholder='Fuel Quantity Purchased' class='my-form-field' required>
                 <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
                 <input type='text' name='reading[fuel_units]' value='gal' class='hidden my-form-field' required>
                 <!--
@@ -87,7 +87,7 @@
                   <input type="radio" name='readings[fuel_units]' value='L'/> Liters<br>
                 </div>
                 -->
-                <input type='number' min='0' step='0.01' name='reading[price]' placeholder='0.00' class='my-form-field'/>
+                <input type='number' min='0' step='0.01' name='reading[price]' placeholder='Total Purchase Price' class='my-form-field'/>
                 <input type='text' name='reading[price_units]' value='US Dollars' class='hidden my-form-field'/>
                 <!--
                 <div class='price-radio'>
@@ -110,6 +110,7 @@
             <hr class='hidden'>
             <div id='summary-wrapper' class='summary-wrapper'>
               <div id='special-message' class='special-message'></div>
+              <div id='summary-header' class='hidden'>Summary:</div>
               <div id='summary' class='summary-detail content'></div>
             </div>
             <hr class='hidden'>

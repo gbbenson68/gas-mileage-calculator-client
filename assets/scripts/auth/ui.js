@@ -91,10 +91,14 @@ const onSignOutSuccess = responseData => {
   util.timeoutMessage()
   util.hide(config.authButtonClass)
   util.hide(config.calcButtonClass)
+  util.hide(config.newEntryId)
+  util.hide(config.newEntryBackButtonId)
+  util.hide('hr')
+  util.hide(config.summaryHeaderId)
+  $(config.specialMessageId).html('')
+
   util.show(config.signUpButtonId)
   util.show(config.signInButtonId)
-  util.hide('hr')
-  $(config.specialMessageId).html('')
 
   // Remove content upon sign-out
   $(config.contentId).html('')
