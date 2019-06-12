@@ -55,6 +55,11 @@ I did, perhaps, go a little "button happy," which required a bit of acrobatics w
 
 Speaking of event listeners and handlers... I also had to perform some acrobatics to make sure that the update and delete buttons for the individual entries was working correctly. Having said that, the use of Handlebars templates and helpers themselves was fairly straightforward, however. In general, I find Handlebars to be very useful!
 
+#### Data Validation
+Most of the data is validated by the HTML, so that no crap data can be entered. The odometer reading must be a _number_ and have a minimum of _0_ (thereby making it an integer). The fuel quantity must be a _number_, have a minimum of _0_ and a step of _0.1_ (thereby making it a float of one decimal place) and, lastly, the price must be a _number_, have a minimum of _0_ and a step of _0.01_ (thereby making it a float of two decimal places).
+
+Since the price is an optional field, I've put a helper function in place such that, if no value is specified, a value of _0.00_ is displayed upon retrieval.
+
 #### A Quick Aside About the Color Theme
 My wife, Barbara, kept on asking me "Can you make it pink and purple?" on my last project, so I decided to indulge her on this project. 😉
 
