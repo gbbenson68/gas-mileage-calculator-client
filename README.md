@@ -199,6 +199,8 @@ _Feel free to contact me at guy dot b dot benson at gmail dot com if you've foun
 #### To-Dos
 * My CSS/Sass/Bootstrap skills are still in the toddler stage, so the UI is based on my (as yet) limited knowledge.
 
+* It would be nice to have a modal that said "Are you sure?" or somesuch when clicking the delete entry button.
+
 * I wanted to include an animation in the header, but I have not been able to get that working, as yet.
 
 * I18N and L10N: The current model contains the ability to store different values (liters vs. gallons, kilometers vs. miles, etc.). The front-end is currently hard-coded to Imperial units, as exposing these fields would require the proper checking to ensure that all entries fit a certain profile (see below).
