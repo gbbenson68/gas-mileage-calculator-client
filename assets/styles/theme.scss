@@ -84,8 +84,13 @@ p {
 }
 
 .delete-entry-button {
-  background: $firetruck-red;
-  color: $paper-white;
+  background: $mit-cabernet;
+  color: $black;
+
+  &:hover {
+    background: $firetruck-red;
+    color: $paper-white;
+  }
 }
 
 .my-form-field {
