@@ -68,34 +68,34 @@
             <form id='new-entry' class='hidden'>
               <fieldset>
                 <legend>New Entry</legend>
-                <input type='date' name='reading[transaction_date]' placeholder='Date' required>
-                <input type='number' min='0' name='reading[odometer_reading]' placeholder='Odometer Reading' required>
+                <input type='date' name='reading[transaction_date]' placeholder='Date' class='my-form-field' required>
+                <input type='number' min='0' name='reading[odometer_reading]' placeholder='Odometer Reading' class='my-form-field' required>
                 <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
-                <input type='text' name='reading[odometer_units]' value='mi' class='hidden' required>
+                <input type='text' name='reading[odometer_units]' value='mi' class='hidden my-form-field' required>
                 <!--
                 <div class='odo-radio'>
                   <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
                   <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
                 </div>
                 -->
-                <input type='number' min='0' step='0.1' name='reading[fuel_amount]' placeholder='Fuel Amount' required>
+                <input type='number' min='0' step='0.1' name='reading[fuel_amount]' placeholder='Fuel Amount' class='my-form-field' required>
                 <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
-                <input type='text' name='reading[fuel_units]' value='gal' class='hidden' required>
+                <input type='text' name='reading[fuel_units]' value='gal' class='hidden my-form-field' required>
                 <!--
                 <div class='fuel-radio'>
                   <input type='radio' name='readings[fuel_units]' value='gal' checked/> Gallons<br>
                   <input type="radio" name='readings[fuel_units]' value='L'/> Liters<br>
                 </div>
                 -->
-                <input type='number' min='0' step='0.01' name='reading[price]' placeholder='0.00'/>
-                <input type='text' name='reading[price_units]' value='US Dollars' class='hidden'/>
+                <input type='number' min='0' step='0.01' name='reading[price]' placeholder='0.00' class='my-form-field'/>
+                <input type='text' name='reading[price_units]' value='US Dollars' class='hidden my-form-field'/>
                 <!--
                 <div class='price-radio'>
                 <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
                 <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
                 </div>
                 -->
-                <input type='text' name='reading[comment]' placeholder='Comment'/>
+                <input type='text' name='reading[comment]' placeholder='Comment' class='my-form-field'/>
                 <input type='submit' class='my-button' value='Enter'/>
               </fieldset>
             </form>

@@ -10,10 +10,9 @@ body {
 header {
   background: $barbara-purple;
   border-bottom: solid $black;
+  border-top: solid $black;
   border-width: thin;
   color: $parchment;
-  font-size: 3 * $font-size;
-  font-style: italic;
 }
 
 aside {
@@ -24,6 +23,7 @@ aside {
 }
 
 hr {
+  border-bottom: groove $galway1;
   border-width: 4px;
 }
 
@@ -32,8 +32,6 @@ footer {
   border-bottom: solid $black;
   border-top: solid $black;
   border-width: thin;
-  font-style: italic;
-  //max-height: 15vh;
 }
 
 .user-display {
@@ -42,8 +40,6 @@ footer {
 
 .summary-wrapper {
   color: $navy-blue;
-  font-size: 2 * $font-size;
-  font-weight: 600;
   text-shadow: $parakeet-yellow 1px 1px;
 }
 
@@ -59,13 +55,36 @@ footer {
   margin-left: $font-size;
 }
 
+.reading-entry {
+  border-bottom: groove $galway1;
+  border-width: .1 * $font-size;
+}
+
+.my-button {
+  border-radius: .4 * $font-size;
+  font-style: italic;
+  margin: .2 * $font-size .1 * $font-size;
+
+  &:hover {
+    background-color: $paper-white;
+  }
+}
+
+.my-form-field {
+  border-radius: .4 * $font-size;
+  font-style: italic;
+  margin: .2 * $font-size .1 * $font-size;
+
+  &:hover {
+    background-color: $light-pink;
+  }
+}
+
 .success,
 .failure {
   color: $parchment;
   font-size: 1.2 * $font-size;
 }
-
-// BUTTONS!! Thanks: https://www.bestcssbuttongenerator.com/
 
 .hidden {
   display: none;
