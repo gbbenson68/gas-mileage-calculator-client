@@ -48,7 +48,7 @@ const paramsAreValid = (formData) => {
   let latestTransDate = ''
   let latestOdoReading = 0
   store.allReadings.forEach((reading) => {
-    if (reading.transaction_date >= latestTransDate && reading.transaction_date < newEntryTransDate) {
+    if (reading.transaction_date >= latestTransDate && reading.transaction_date <= newEntryTransDate) {
       latestTransDate = reading.transaction_date
       latestOdoReading = reading.odometer_reading
     }
@@ -70,7 +70,7 @@ const paramsAreValid = (formData) => {
     let earliestTransDate = lastTransDate
     let earliestOdoReading = lastOdoReading
     reverseReadings.forEach((reading) => {
-      if (reading.transaction_date < earliestTransDate && reading.transaction_date >= newEntryTransDate) {
+      if (reading.transaction_date < earliestTransDate && reading.transaction_date > newEntryTransDate) {
         earliestTransDate = reading.transaction_date
         earliestOdoReading = reading.odometer_reading
       }
