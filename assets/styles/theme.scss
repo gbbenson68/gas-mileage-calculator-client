@@ -1,5 +1,5 @@
 body {
-  background: $barbara-pink;
+  background: $light-grey-blue;
   display: flex;
   flex-direction: column;
   font-family: $font-family;
@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background: $barbara-purple;
+  background: $dark-blue;
   border-bottom: solid $black;
   border-top: solid $black;
   border-width: thin;
@@ -49,7 +49,7 @@ p {
 
 .summary-wrapper {
   color: $navy-blue;
-  text-shadow: $parakeet-yellow 1px 1px;
+  text-shadow: $bg-one 2px 2px;
 }
 
 .summary-detail {
@@ -69,7 +69,7 @@ p {
   border-width: .1 * $font-size;
 
   &:hover {
-    background: $medium-pink;
+    background: $light-sky-blue;
   }
 }
 
@@ -99,7 +99,7 @@ p {
   margin: .2 * $font-size .1 * $font-size;
 
   &:hover {
-    background: $light-pink;
+    background: $light-sky-blue;
   }
 }
 

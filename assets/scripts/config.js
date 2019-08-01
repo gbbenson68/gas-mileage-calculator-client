@@ -37,7 +37,6 @@ const messageDelay = 8000
 
 let apiUrl
 const apiUrls = {
-  // production: 'https://blooming-dawn-78235.herokuapp.com',
   production: 'https://gas-mileage-calculator.herokuapp.com',
   development: 'http://localhost:4741'
 }
