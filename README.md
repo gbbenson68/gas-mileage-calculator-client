@@ -194,6 +194,7 @@ Known Bugs and To-dos
 _Feel free to contact me at guy dot b dot benson at gmail dot com if you've found a bug, or have a suggestion about functionality. Please include an appropriate subject so I don't think that it's spam!_
 
 #### Known Bugs
+* There is a limitation currently in the update of readings: due to a logic error, it's not currenty possibly to update the odometer reading. At some point in the near future, I will remedy this.
 * Although not a bug, per se, the code could by a little DRYer.
 
 #### To-Dos
