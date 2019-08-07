@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Gas Mileage Calculator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        Gas Mileage Calculator
+      </header>
+
+      <!-- MAIN CONTENT STARTS HERE!!! -->
+      <div class='container-fluid'>
+        <div class='row main-content'>
+
+          <aside class='col-md-2'>
+            <!-- SIGN-IN FORM -->
+            <div id='user-display' class='user-display'></div>
+            <form id='sign-in' class='hidden'>
+              <fieldset>
+                <input type="email" name="credentials[email]" placeholder="Enter email here" class='my-form-field' required>
+                <input type="password" name="credentials[password]" placeholder="Enter password here" class='my-form-field' required>
+                <input type="submit" class='my-button' value="Sign In"/>
+              </fieldset>
+            </form>
+
+            <!-- SIGN-UP FORM -->
+            <form id='sign-up' class='hidden'>
+              <fieldset>
+                <input type="email" name="credentials[email]" placeholder="Enter email here" class='my-form-field' required>
+                <input type="password" name="credentials[password]" placeholder="Enter password here" class='my-form-field' required>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Re-enter password here" class='my-form-field' required>
+                <input type="submit" class='my-button' value="Sign Up"/>
+              </fieldset>
+            </form>
+
+            <!-- CHANGE PASSWORD FORM -->
+            <form id='change-pw' class='hidden'>
+              <fieldset>
+                <input type="password" name="passwords[old]" placeholder="Enter old password here" class='my-form-field' required>
+                <input type="password" name="passwords[new]" placeholder="Enter new password here" class='my-form-field' required>
+                <input type="submit" class='my-button' value="Change Password"/>
+              </fieldset>
+            </form>
+
+            <!-- BUTTONS THAT CONTROL FUNCTIONALITY RE: VIEW/HIDE -->
+            <button id='sign-up-button' class='auth-button my-button'>Sign Up</button>
+            <button id='sign-in-button' class='auth-button my-button'>Sign In</button>
+            <button id='change-pw-button' class='auth-button hidden my-button'>Change Password</button>
+            <button id='sign-out-button' class='auth-button hidden my-button'>Sign Out</button>
+            <button id='back-button' class='auth-button hidden my-button'>Back</button>
+            <button id='change-pw-back-button' class='auth-button hidden my-button'>Back</button>
+            <div id='user-message' class='user-message'></div>
+          </aside> <!--div class='col-md-2' -->
+
+          <!-- BEGIN CONTENT CONTAINER -->
+          <main class='col-md-10'>
+
+            <!-- NEW ENTRY FORM -->
+            <form id='new-entry' class='hidden'>
+              <fieldset>
+                <legend>New Entry</legend>
+                <input type='date' name='reading[transaction_date]' placeholder='Date' class='my-form-field' required>
+                <input type='number' min='0' name='reading[odometer_reading]' placeholder='Odometer Reading' class='my-form-field' required>
+                <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
+                <input type='text' name='reading[odometer_units]' value='mi' class='hidden my-form-field' required>
+                <!--
+                <div class='odo-radio'>
+                  <input type='radio' name='readings[odometer_units]' value='mi' checked/> Miles<br>
+                  <input type="radio" name='readings[odometer_units]' value='km'/> Kilometers<br>
+                </div>
+                -->
+                <input type='number' min='0' step='0.1' name='reading[fuel_amount]' placeholder='Fuel Quantity Purchased' class='my-form-field' required>
+                <!-- NOTE: The input item below should be removed when the radio button is activated!! -->
+                <input type='text' name='reading[fuel_units]' value='gal' class='hidden my-form-field' required>
+                <!--
+                <div class='fuel-radio'>
+                  <input type='radio' name='readings[fuel_units]' value='gal' checked/> Gallons<br>
+                  <input type="radio" name='readings[fuel_units]' value='L'/> Liters<br>
+                </div>
+                -->
+                <input type='number' min='0' step='0.01' name='reading[price]' placeholder='Total Purchase Price' class='my-form-field'/>
+                <input type='text' name='reading[price_units]' value='US Dollars' class='hidden my-form-field'/>
+                <!--
+                <div class='price-radio'>
+                <input type='radio' name='readings[price_units]' value='us-dollars' checked/> Dollars<br>
+                <input type="radio" name='readings[price_units]' value='euros'/> Euros<br>
+                </div>
+                -->
+                <input type='text' name='reading[comment]' placeholder='Comment' class='my-form-field'/>
+                <input type='submit' class='my-button' value='Enter'/>
+              </fieldset>
+            </form>
+
+            <!-- BUTTONS TO CONTROL SOME FUNCTIONALITY -->
+            <button id='new-entry-button' class='calculator-button hidden my-button'>New Entry</button>
+            <button id='new-entry-back-button' class='calculator-button hidden my-button'>Back</button>
+            <button id='load-entries-button' class='calculator-button hidden my-button'>Show Entries</button>
+            <button id='hide-entries-button' class='calculator-button hidden my-button'>Hide Entries</button>
+
+            <!-- START SUMMARY SECTION -->
+            <hr class='hidden'>
+            <div id='summary-wrapper' class='summary-wrapper'>
+              <div id='special-message' class='special-message'></div>
+              <div id='summary-header' class='hidden'>Summary:</div>
+              <div id='summary' class='summary-detail content'></div>
+            </div>
+            <hr class='hidden'>
+            <div id='default-content' class='default-content'>
+              <p>What is this all about?</p>
+              <ul>
+                <li>This application calculates a running average of the mileage for a given user. For every trip to the gas station,
+                    simply record the date, your odometer reading on that date, the amount of gas you purchased, and what you paid for it.
+                    Over the course of time, the MPG (miles per gallon) and PPG (price per gallon) should be a fairly accurate average of
+                    the mileage your vehicle gets on a regular basis.</li>
+                <li>As it's a running total, you can add older entries, as well. If the data that you enter is correct, then those once forgotten
+                    entries will only act to make your average MPG and PPG calculations more accurate.</li>
+              </ul>
+
+              <p>What should I expect?</p>
+              <ul>
+                <li>For calculations to begin, you need at least two entries. The reason for this is that, even after the first entry,
+                    there is no effective distance driven. (Did you drive 500 miles before the first entry or 5000 miles? How much gas
+                    did you actually purchase before the first entry?)</li>
+                <li>The Total Fuel amount reflects what has been purchased in total, whereas the MPG and PPG calculations do not take
+                    the fuel for the most recent entry into account, as there's no way of knowing how far you will drive on your current
+                    tank of gas, until you add yet another entry, that is.</li>
+                <li>For any given new entry with a given date, the odometer reading is compared to the previous and next entries to
+                    ensure better data consistency. If for example, you have an entry on 3/1/2019 with 10000 miles and another entry on
+                    4/1/2019 with 11000 miles, you cannot add an entry on 3/15/2019 with an odometer reading less than 10000 or greater
+                    than 11000.</li>
+              </ul>
+            </div>
+            <div id='content' class='content'></div>
+
+          </main>  <!-- div class='col-md-10' -->
+          <!-- END MAIN SECTION -->
+
+        </div>
+      </div>
+
+
+      <footer class='footer'>
+        © 2019 Guy B. Benson
+      </footer>
+    </body>
+</html>
